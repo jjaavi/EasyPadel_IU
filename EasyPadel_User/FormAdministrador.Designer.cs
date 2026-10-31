@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             panelLogo = new Panel();
-            lblPrincipal = new Label();
             panelReserves = new Panel();
             comboBoxFiltreTorn = new ComboBox();
             label5 = new Label();
@@ -65,41 +64,52 @@
             btnCercarUsuari = new Button();
             dataGridViewUsuaris = new DataGridView();
             panelMantenimentDePistes = new Panel();
+            panelNovaPista = new Panel();
+            btnNovaPista = new Button();
+            label13 = new Label();
+            btnMotrarNovaPista = new Button();
+            txtNomPistaNova = new TextBox();
+            panelModificarPista = new Panel();
+            checkBoxPistaActiva = new CheckBox();
+            btnModificarPista = new Button();
+            label14 = new Label();
+            txtNomPista = new TextBox();
+            btnMostrarModificarPista = new Button();
+            label12 = new Label();
+            listBoxPistes = new ListBox();
             btnReserves = new Button();
             btnUsuaris = new Button();
             btnMantenimentDePistes = new Button();
-            btnCanviarPasswordAdminActual = new Button();
+            btnAltresConfiguracions = new Button();
+            menuStripAdmin = new MenuStrip();
+            menuReserves = new ToolStripMenuItem();
+            menuUsuaris = new ToolStripMenuItem();
+            manuMantenimentPistes = new ToolStripMenuItem();
+            manuAltresConfiguracions = new ToolStripMenuItem();
+            canviarPasswordDeAdminToolStripMenuItem = new ToolStripMenuItem();
             panelReserves.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridReserves).BeginInit();
             panelUsuaris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuaris).BeginInit();
+            panelMantenimentDePistes.SuspendLayout();
+            panelNovaPista.SuspendLayout();
+            panelModificarPista.SuspendLayout();
+            menuStripAdmin.SuspendLayout();
             SuspendLayout();
             // 
             // panelLogo
             // 
             panelLogo.BackgroundImage = Properties.Resources.EasyPadel_logo1;
             panelLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            panelLogo.Location = new Point(954, 12);
+            panelLogo.Location = new Point(970, 475);
             panelLogo.Margin = new Padding(2);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(95, 100);
+            panelLogo.Size = new Size(80, 75);
             panelLogo.TabIndex = 2;
-            // 
-            // lblPrincipal
-            // 
-            lblPrincipal.AutoSize = true;
-            lblPrincipal.Font = new Font("Arial", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPrincipal.Location = new Point(358, 12);
-            lblPrincipal.Margin = new Padding(2, 0, 2, 0);
-            lblPrincipal.Name = "lblPrincipal";
-            lblPrincipal.Size = new Size(345, 36);
-            lblPrincipal.TabIndex = 3;
-            lblPrincipal.Text = "Panell de administrador";
-            lblPrincipal.TextAlign = ContentAlignment.TopCenter;
             // 
             // panelReserves
             // 
-            panelReserves.BackColor = Color.White;
+            panelReserves.BackColor = Color.FromArgb(224, 224, 224);
             panelReserves.Controls.Add(comboBoxFiltreTorn);
             panelReserves.Controls.Add(label5);
             panelReserves.Controls.Add(label3);
@@ -114,10 +124,11 @@
             panelReserves.Controls.Add(dataGridReserves);
             panelReserves.Controls.Add(btnModificarReserva);
             panelReserves.Controls.Add(btnEliminarReserva);
-            panelReserves.Location = new Point(12, 117);
+            panelReserves.Dock = DockStyle.Fill;
+            panelReserves.Location = new Point(0, 33);
             panelReserves.Margin = new Padding(2);
             panelReserves.Name = "panelReserves";
-            panelReserves.Size = new Size(1038, 555);
+            panelReserves.Size = new Size(1061, 561);
             panelReserves.TabIndex = 4;
             // 
             // comboBoxFiltreTorn
@@ -252,8 +263,7 @@
             // 
             // panelUsuaris
             // 
-            panelUsuaris.BackColor = Color.White;
-            panelUsuaris.Controls.Add(btnCanviarPasswordAdminActual);
+            panelUsuaris.BackColor = Color.FromArgb(224, 224, 224);
             panelUsuaris.Controls.Add(checkBoxEstat);
             panelUsuaris.Controls.Add(btnModificarUsuari);
             panelUsuaris.Controls.Add(btnAltaUsuari);
@@ -272,9 +282,10 @@
             panelUsuaris.Controls.Add(txtFiltreUsuariUsuari);
             panelUsuaris.Controls.Add(btnCercarUsuari);
             panelUsuaris.Controls.Add(dataGridViewUsuaris);
-            panelUsuaris.Location = new Point(12, 117);
+            panelUsuaris.Dock = DockStyle.Fill;
+            panelUsuaris.Location = new Point(0, 33);
             panelUsuaris.Name = "panelUsuaris";
-            panelUsuaris.Size = new Size(1038, 555);
+            panelUsuaris.Size = new Size(1061, 561);
             panelUsuaris.TabIndex = 4;
             // 
             // checkBoxEstat
@@ -443,52 +454,221 @@
             // 
             // panelMantenimentDePistes
             // 
-            panelMantenimentDePistes.Location = new Point(12, 117);
+            panelMantenimentDePistes.BackColor = Color.FromArgb(224, 224, 224);
+            panelMantenimentDePistes.Controls.Add(panelLogo);
+            panelMantenimentDePistes.Controls.Add(panelNovaPista);
+            panelMantenimentDePistes.Controls.Add(panelModificarPista);
+            panelMantenimentDePistes.Controls.Add(label12);
+            panelMantenimentDePistes.Controls.Add(listBoxPistes);
+            panelMantenimentDePistes.Dock = DockStyle.Fill;
+            panelMantenimentDePistes.Location = new Point(0, 33);
             panelMantenimentDePistes.Name = "panelMantenimentDePistes";
-            panelMantenimentDePistes.Size = new Size(1038, 555);
+            panelMantenimentDePistes.Size = new Size(1061, 561);
             panelMantenimentDePistes.TabIndex = 5;
+            // 
+            // panelNovaPista
+            // 
+            panelNovaPista.BackColor = Color.WhiteSmoke;
+            panelNovaPista.Controls.Add(btnNovaPista);
+            panelNovaPista.Controls.Add(label13);
+            panelNovaPista.Controls.Add(btnMotrarNovaPista);
+            panelNovaPista.Controls.Add(txtNomPistaNova);
+            panelNovaPista.Location = new Point(686, 92);
+            panelNovaPista.Name = "panelNovaPista";
+            panelNovaPista.Size = new Size(264, 379);
+            panelNovaPista.TabIndex = 6;
+            // 
+            // btnNovaPista
+            // 
+            btnNovaPista.Location = new Point(75, 103);
+            btnNovaPista.Name = "btnNovaPista";
+            btnNovaPista.Size = new Size(178, 34);
+            btnNovaPista.TabIndex = 5;
+            btnNovaPista.Text = "Guardar";
+            btnNovaPista.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 68);
+            label13.Name = "label13";
+            label13.Size = new Size(56, 25);
+            label13.TabIndex = 4;
+            label13.Text = "Nom:";
+            // 
+            // btnMotrarNovaPista
+            // 
+            btnMotrarNovaPista.Location = new Point(9, 9);
+            btnMotrarNovaPista.Name = "btnMotrarNovaPista";
+            btnMotrarNovaPista.Size = new Size(243, 34);
+            btnMotrarNovaPista.TabIndex = 2;
+            btnMotrarNovaPista.Text = "Nova Pista";
+            btnMotrarNovaPista.UseVisualStyleBackColor = true;
+            // 
+            // txtNomPistaNova
+            // 
+            txtNomPistaNova.BorderStyle = BorderStyle.FixedSingle;
+            txtNomPistaNova.Location = new Point(74, 66);
+            txtNomPistaNova.Name = "txtNomPistaNova";
+            txtNomPistaNova.Size = new Size(178, 31);
+            txtNomPistaNova.TabIndex = 3;
+            // 
+            // panelModificarPista
+            // 
+            panelModificarPista.BackColor = Color.WhiteSmoke;
+            panelModificarPista.Controls.Add(checkBoxPistaActiva);
+            panelModificarPista.Controls.Add(btnModificarPista);
+            panelModificarPista.Controls.Add(label14);
+            panelModificarPista.Controls.Add(txtNomPista);
+            panelModificarPista.Controls.Add(btnMostrarModificarPista);
+            panelModificarPista.Location = new Point(398, 92);
+            panelModificarPista.Name = "panelModificarPista";
+            panelModificarPista.Size = new Size(264, 379);
+            panelModificarPista.TabIndex = 5;
+            // 
+            // checkBoxPistaActiva
+            // 
+            checkBoxPistaActiva.AutoSize = true;
+            checkBoxPistaActiva.Location = new Point(74, 101);
+            checkBoxPistaActiva.Name = "checkBoxPistaActiva";
+            checkBoxPistaActiva.Size = new Size(167, 29);
+            checkBoxPistaActiva.TabIndex = 7;
+            checkBoxPistaActiva.Text = "En manteniment";
+            checkBoxPistaActiva.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarPista
+            // 
+            btnModificarPista.Location = new Point(74, 136);
+            btnModificarPista.Name = "btnModificarPista";
+            btnModificarPista.Size = new Size(178, 34);
+            btnModificarPista.TabIndex = 6;
+            btnModificarPista.Text = "Modificar";
+            btnModificarPista.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(12, 66);
+            label14.Name = "label14";
+            label14.Size = new Size(56, 25);
+            label14.TabIndex = 6;
+            label14.Text = "Nom:";
+            // 
+            // txtNomPista
+            // 
+            txtNomPista.BorderStyle = BorderStyle.FixedSingle;
+            txtNomPista.Location = new Point(74, 64);
+            txtNomPista.Name = "txtNomPista";
+            txtNomPista.Size = new Size(178, 31);
+            txtNomPista.TabIndex = 5;
+            // 
+            // btnMostrarModificarPista
+            // 
+            btnMostrarModificarPista.Location = new Point(9, 9);
+            btnMostrarModificarPista.Name = "btnMostrarModificarPista";
+            btnMostrarModificarPista.Size = new Size(243, 34);
+            btnMostrarModificarPista.TabIndex = 2;
+            btnMostrarModificarPista.Text = "Modificar pista";
+            btnMostrarModificarPista.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(102, 61);
+            label12.Name = "label12";
+            label12.Size = new Size(120, 25);
+            label12.TabIndex = 4;
+            label12.Text = "Pistes actuals:";
+            // 
+            // listBoxPistes
+            // 
+            listBoxPistes.BackColor = Color.White;
+            listBoxPistes.FormattingEnabled = true;
+            listBoxPistes.Location = new Point(102, 92);
+            listBoxPistes.Name = "listBoxPistes";
+            listBoxPistes.Size = new Size(264, 379);
+            listBoxPistes.TabIndex = 0;
             // 
             // btnReserves
             // 
             btnReserves.Location = new Point(14, 79);
             btnReserves.Margin = new Padding(2);
             btnReserves.Name = "btnReserves";
-            btnReserves.Size = new Size(258, 34);
+            btnReserves.Size = new Size(220, 34);
             btnReserves.TabIndex = 5;
             btnReserves.Text = "Reserves";
             btnReserves.UseVisualStyleBackColor = true;
-            btnReserves.Click += btnReserves_Click;
             // 
             // btnUsuaris
             // 
-            btnUsuaris.Location = new Point(276, 79);
+            btnUsuaris.Location = new Point(238, 79);
             btnUsuaris.Margin = new Padding(2);
             btnUsuaris.Name = "btnUsuaris";
-            btnUsuaris.Size = new Size(250, 34);
+            btnUsuaris.Size = new Size(220, 34);
             btnUsuaris.TabIndex = 6;
             btnUsuaris.Text = "Usuaris";
             btnUsuaris.UseVisualStyleBackColor = true;
-            btnUsuaris.Click += btnUsuaris_Click;
             // 
             // btnMantenimentDePistes
             // 
-            btnMantenimentDePistes.Location = new Point(531, 79);
+            btnMantenimentDePistes.Location = new Point(462, 79);
             btnMantenimentDePistes.Margin = new Padding(2);
             btnMantenimentDePistes.Name = "btnMantenimentDePistes";
-            btnMantenimentDePistes.Size = new Size(258, 34);
+            btnMantenimentDePistes.Size = new Size(220, 34);
             btnMantenimentDePistes.TabIndex = 7;
             btnMantenimentDePistes.Text = "Manteniment de pistes";
             btnMantenimentDePistes.UseVisualStyleBackColor = true;
-            btnMantenimentDePistes.Click += btnMantenimentDePistes_Click;
             // 
-            // btnCanviarPasswordAdminActual
+            // btnAltresConfiguracions
             // 
-            btnCanviarPasswordAdminActual.Location = new Point(16, 494);
-            btnCanviarPasswordAdminActual.Name = "btnCanviarPasswordAdminActual";
-            btnCanviarPasswordAdminActual.Size = new Size(222, 34);
-            btnCanviarPasswordAdminActual.TabIndex = 32;
-            btnCanviarPasswordAdminActual.Text = "Canviar password admin";
-            btnCanviarPasswordAdminActual.UseVisualStyleBackColor = true;
+            btnAltresConfiguracions.Location = new Point(687, 79);
+            btnAltresConfiguracions.Name = "btnAltresConfiguracions";
+            btnAltresConfiguracions.Size = new Size(220, 34);
+            btnAltresConfiguracions.TabIndex = 8;
+            btnAltresConfiguracions.Text = "Altres configuracions";
+            btnAltresConfiguracions.UseVisualStyleBackColor = true;
+            // 
+            // menuStripAdmin
+            // 
+            menuStripAdmin.ImageScalingSize = new Size(24, 24);
+            menuStripAdmin.Items.AddRange(new ToolStripItem[] { menuReserves, menuUsuaris, manuMantenimentPistes, manuAltresConfiguracions });
+            menuStripAdmin.Location = new Point(0, 0);
+            menuStripAdmin.Name = "menuStripAdmin";
+            menuStripAdmin.Size = new Size(1061, 33);
+            menuStripAdmin.TabIndex = 9;
+            menuStripAdmin.Text = "menuStrip1";
+            // 
+            // menuReserves
+            // 
+            menuReserves.Name = "menuReserves";
+            menuReserves.Size = new Size(96, 29);
+            menuReserves.Text = "Reserves";
+            // 
+            // menuUsuaris
+            // 
+            menuUsuaris.Name = "menuUsuaris";
+            menuUsuaris.Size = new Size(85, 29);
+            menuUsuaris.Text = "Usuaris";
+            // 
+            // manuMantenimentPistes
+            // 
+            manuMantenimentPistes.Name = "manuMantenimentPistes";
+            manuMantenimentPistes.Size = new Size(209, 29);
+            manuMantenimentPistes.Text = "Manteniment de pistes";
+            // 
+            // manuAltresConfiguracions
+            // 
+            manuAltresConfiguracions.DropDownItems.AddRange(new ToolStripItem[] { canviarPasswordDeAdminToolStripMenuItem });
+            manuAltresConfiguracions.Name = "manuAltresConfiguracions";
+            manuAltresConfiguracions.Size = new Size(194, 29);
+            manuAltresConfiguracions.Text = "Altres configuracions";
+            // 
+            // canviarPasswordDeAdminToolStripMenuItem
+            // 
+            canviarPasswordDeAdminToolStripMenuItem.Name = "canviarPasswordDeAdminToolStripMenuItem";
+            canviarPasswordDeAdminToolStripMenuItem.Size = new Size(334, 34);
+            canviarPasswordDeAdminToolStripMenuItem.Text = "Canviar password de admin";
+            canviarPasswordDeAdminToolStripMenuItem.Click += canviarPasswordDeAdminToolStripMenuItem_Click;
             // 
             // FormAdministrador
             // 
@@ -496,15 +676,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.Silver;
-            ClientSize = new Size(1061, 685);
-            Controls.Add(panelLogo);
-            Controls.Add(btnMantenimentDePistes);
-            Controls.Add(btnUsuaris);
-            Controls.Add(btnReserves);
+            ClientSize = new Size(1061, 594);
+            Controls.Add(panelMantenimentDePistes);
             Controls.Add(panelUsuaris);
             Controls.Add(panelReserves);
-            Controls.Add(lblPrincipal);
-            Controls.Add(panelMantenimentDePistes);
+            Controls.Add(menuStripAdmin);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStripAdmin;
             Margin = new Padding(2);
             MaximizeBox = false;
             Name = "FormAdministrador";
@@ -516,6 +694,14 @@
             panelUsuaris.ResumeLayout(false);
             panelUsuaris.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuaris).EndInit();
+            panelMantenimentDePistes.ResumeLayout(false);
+            panelMantenimentDePistes.PerformLayout();
+            panelNovaPista.ResumeLayout(false);
+            panelNovaPista.PerformLayout();
+            panelModificarPista.ResumeLayout(false);
+            panelModificarPista.PerformLayout();
+            menuStripAdmin.ResumeLayout(false);
+            menuStripAdmin.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -523,7 +709,6 @@
         #endregion
 
         private Panel panelLogo;
-        private Label lblPrincipal;
         private Panel panelReserves;
         private Button btnReserves;
         private Button btnUsuaris;
@@ -562,6 +747,25 @@
         private Button btnAltaUsuari;
         private Button btnModificarUsuari;
         private CheckBox checkBoxEstat;
-        private Button btnCanviarPasswordAdminActual;
+        private Button btnAltresConfiguracions;
+        private ListBox listBoxPistes;
+        private Button btnMostrarModificarPista;
+        private Label label12;
+        private Panel panelNovaPista;
+        private Button btnMotrarNovaPista;
+        private TextBox txtNomPistaNova;
+        private Panel panelModificarPista;
+        private Button btnNovaPista;
+        private Label label13;
+        private CheckBox checkBoxPistaActiva;
+        private Button btnModificarPista;
+        private Label label14;
+        private TextBox txtNomPista;
+        private MenuStrip menuStripAdmin;
+        private ToolStripMenuItem menuReserves;
+        private ToolStripMenuItem menuUsuaris;
+        private ToolStripMenuItem manuMantenimentPistes;
+        private ToolStripMenuItem manuAltresConfiguracions;
+        private ToolStripMenuItem canviarPasswordDeAdminToolStripMenuItem;
     }
 }

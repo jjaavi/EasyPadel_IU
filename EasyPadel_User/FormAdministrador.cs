@@ -15,9 +15,9 @@ namespace EasyPadel_User
         public FormAdministrador()
         {
             InitializeComponent();
-            btnReserves.Click += btnReserves_Click;
-            btnUsuaris.Click += btnUsuaris_Click;
-            btnMantenimentDePistes.Click += btnMantenimentDePistes_Click;
+            menuReserves.Click += menuReserves_Click;
+            menuUsuaris.Click += menuUsuaris_Click;
+            manuMantenimentPistes.Click += manuMantenimentPistes_Click;
             btnCercarReserva.Click += btnCercarReserva_Click;
             btnCercarUsuari.Click += btnCercarUsuari_Click;
             btnModificarReserva.Click += btnModificarReserva_Click;
@@ -25,21 +25,15 @@ namespace EasyPadel_User
             btnBaixaUsuari.Click += btnBaixaUsuari_Click;
             btnAltaUsuari.Click += btnAltaUsuari_Click;
             btnModificarUsuari.Click += btnModificarUsuari_Click;
+            btnMostrarModificarPista.Click += btnMostrarModificarPista_Click;
+            btnMotrarNovaPista.Click += btnMotrarNovaPista_Click;
+            btnNovaPista.Click += btnNovaPista_Click;
+            btnModificarPista.Click += btnModificarPista_Click;
+            listBoxPistes.SelectedIndexChanged += listBoxPistes_SelectedIndexChanged;
             dataGridReserves.SelectionChanged += dataGridReserves_SelectionChanged;
             dataGridViewUsuaris.SelectionChanged += dataGridViewUsuaris_SelectionChanged;
             dataGridReserves.CellContentDoubleClick += btnModificarReserva_Click;
             dataGridViewUsuaris.CellContentDoubleClick += btnModificarUsuari_Click;
-        }
-
-        private void MarcarMenuActiuAdministrador(Button botoActiu)
-        {
-            Button[] botonsMenu = [btnReserves, btnUsuaris, btnMantenimentDePistes];
-
-            foreach (Button boto in botonsMenu)
-            {
-                boto.UseVisualStyleBackColor = false;
-                boto.BackColor = boto == botoActiu ? Color.White : SystemColors.ControlLight;
-            }
         }
 
         private async Task MostrarPanelActiu(Panel panelVisible)
@@ -56,23 +50,24 @@ namespace EasyPadel_User
             {
                 await InicialitzarPanellUsuarisAsync();
             }
+            if (panelMantenimentDePistes.Visible)
+            {
+                await InicialitzarPanellMantenimentDePistesAsync();
+            }
         }
 
-        private async void btnReserves_Click(object? sender, EventArgs e)
+        private async void menuReserves_Click(object? sender, EventArgs e)
         {
-            MarcarMenuActiuAdministrador(btnReserves);
             await MostrarPanelActiu(panelReserves);
         }
 
-        private async void btnUsuaris_Click(object? sender, EventArgs e)
+        private async void menuUsuaris_Click(object? sender, EventArgs e)
         {
-            MarcarMenuActiuAdministrador(btnUsuaris);
             await MostrarPanelActiu(panelUsuaris);
         }
 
-        private async void btnMantenimentDePistes_Click(object? sender, EventArgs e)
+        private async void manuMantenimentPistes_Click(object? sender, EventArgs e)
         {
-            MarcarMenuActiuAdministrador(btnMantenimentDePistes);
             await MostrarPanelActiu(panelMantenimentDePistes);
         }
 
@@ -122,6 +117,176 @@ namespace EasyPadel_User
             }
 
             await Task.CompletedTask;
+        }
+
+        private async Task InicialitzarPanellMantenimentDePistesAsync()
+        {
+            foreach (Control control in panelModificarPista.Controls)
+            {
+                control.Visible = control == btnMostrarModificarPista;
+            }
+
+            foreach (Control control in panelNovaPista.Controls)
+            {
+                control.Visible = control == btnMotrarNovaPista;
+            }
+
+            await CarregarPistesMantenimentAsync();
+        }
+
+        private async Task CarregarPistesMantenimentAsync(int? selectedPistaId = null)
+        {
+            try
+            {
+                List<PistaMantenimentDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaMantenimentDto>>("http://localhost:8080/api/pistes")
+                    ?? [];
+
+                List<PistaListItem> pistesListBox = pistes
+                    .Select(p => new PistaListItem(p.Id, p.Nom ?? string.Empty, p.Activa ?? true))
+                    .ToList();
+
+                listBoxPistes.DataSource = pistesListBox;
+
+                if (pistesListBox.Count == 0)
+                {
+                    txtNomPista.Text = string.Empty;
+                    checkBoxPistaActiva.Checked = false;
+                    return;
+                }
+
+                if (selectedPistaId.HasValue)
+                {
+                    int selectedIndex = pistesListBox.FindIndex(p => p.Id == selectedPistaId.Value);
+                    listBoxPistes.SelectedIndex = selectedIndex >= 0 ? selectedIndex : 0;
+                }
+                else
+                {
+                    listBoxPistes.SelectedIndex = 0;
+                }
+            }
+            catch
+            {
+                listBoxPistes.DataSource = null;
+                txtNomPista.Text = string.Empty;
+                checkBoxPistaActiva.Checked = false;
+                MessageBox.Show("No s'han pogut carregar les pistes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void listBoxPistes_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            if (listBoxPistes.SelectedItem is not PistaListItem pistaSeleccionada)
+            {
+                txtNomPista.Text = string.Empty;
+                checkBoxPistaActiva.Checked = false;
+                return;
+            }
+
+            txtNomPista.Text = pistaSeleccionada.Nom;
+            checkBoxPistaActiva.Checked = !pistaSeleccionada.Activa;
+        }
+
+        private void btnMostrarModificarPista_Click(object? sender, EventArgs e)
+        {
+            foreach (Control control in panelModificarPista.Controls)
+            {
+                control.Visible = true;
+            }
+        }
+
+        private void btnMotrarNovaPista_Click(object? sender, EventArgs e)
+        {
+            foreach (Control control in panelNovaPista.Controls)
+            {
+                control.Visible = true;
+            }
+        }
+
+        private async void btnModificarPista_Click(object? sender, EventArgs e)
+        {
+            PistaListItem? pistaSeleccionada = listBoxPistes.SelectedItem as PistaListItem;
+
+            string? nomPista = NullIfWhiteSpace(txtNomPista.Text);
+            if (nomPista is null)
+            {
+                MessageBox.Show("El nom de la pista és obligatori.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bool enManteniment = checkBoxPistaActiva.Checked;
+            string missatgeConfirmacio = "Segur que vols modificar aquesta pista?";
+            if (enManteniment)
+            {
+                missatgeConfirmacio += "\nVols posar aquesta pista en manteniment?";
+            }
+
+            DialogResult confirmacio = MessageBox.Show(
+                missatgeConfirmacio,
+                "Confirmació",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacio != DialogResult.Yes)
+            {
+                return;
+            }
+
+            PistaUpdateRequestDto request = new(nomPista, !enManteniment);
+
+            try
+            {
+                using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
+                    $"http://localhost:8080/api/pistes/{pistaSeleccionada.Id}",
+                    request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Pista modificada correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await CarregarPistesMantenimentAsync(pistaSeleccionada.Id);
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha pogut modificar la pista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No s'ha pogut modificar la pista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnNovaPista_Click(object? sender, EventArgs e)
+        {
+            string? nomPista = NullIfWhiteSpace(txtNomPistaNova.Text);
+            if (nomPista is null)
+            {
+                MessageBox.Show("El nom de la pista és obligatori.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            PistaCreateRequestDto request = new(nomPista, true);
+
+            try
+            {
+                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync(
+                    "http://localhost:8080/api/pistes",
+                    request);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Pista creada correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNomPistaNova.Text = string.Empty;
+                    await CarregarPistesMantenimentAsync();
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha pogut crear la pista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No s'ha pogut crear la pista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async Task CarregarProperes20ReservesAsync()
@@ -626,8 +791,12 @@ namespace EasyPadel_User
 
         private async void FormAdministrador_Load(object sender, EventArgs e)
         {
-            MarcarMenuActiuAdministrador(btnReserves);
             await MostrarPanelActiu(panelReserves);
+        }
+
+        private void canviarPasswordDeAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private sealed record ReservaResponseDto(
@@ -658,5 +827,31 @@ namespace EasyPadel_User
             [property: JsonPropertyName("telefon")] string? Telefon,
             [property: JsonPropertyName("rol")] string? Rol,
             [property: JsonPropertyName("actiu")] bool? Actiu);
+
+        private sealed record PistaMantenimentDto(
+            [property: JsonPropertyName("id")] int Id,
+            [property: JsonPropertyName("nom")] string? Nom,
+            [property: JsonPropertyName("activa")] bool? Activa);
+
+        private sealed record PistaListItem(int Id, string Nom, bool Activa)
+        {
+            public override string ToString()
+            {
+                if (Activa)
+                {
+                    return Nom;
+                }
+
+                return $"{Nom} - En manteniment";
+            }
+        }
+
+        private sealed record PistaUpdateRequestDto(
+            [property: JsonPropertyName("nom")] string Nom,
+            [property: JsonPropertyName("activa")] bool Activa);
+
+        private sealed record PistaCreateRequestDto(
+            [property: JsonPropertyName("nom")] string Nom,
+            [property: JsonPropertyName("activa")] bool Activa);
     }
 }

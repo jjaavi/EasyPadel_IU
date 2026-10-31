@@ -19,7 +19,6 @@ namespace EasyPadel_User
         private async void FormUsuari_Load(object sender, EventArgs e)
         {
             MostrarPanelActiu(panelReserves);
-            MarcarSubmenuReservesActiu(btnReservesActuals);
             panelActiuReserves = 1;
             await CarregarReservesActualsAsync();
 
@@ -33,7 +32,9 @@ namespace EasyPadel_User
         {
             InitializeComponent();
             InicialitzarGridReserves();
-            btnConfiguracio.Click += btnConfiguracio_Click;
+            menuMevesReserves.Click += menuMevesReserves_Click;
+            menuNovaReserva.Click += menuNovaReserva_Click;
+            menuActualitzarDadesPersonals.Click += menuActualitzarDadesPersonals_Click;
             dataGridViewReservesSoci.SelectionChanged += dataGridViewReservesSoci_SelectionChanged;
             listPistesDisponibles.SelectedIndexChanged += listPistesDisponibles_SelectedIndexChanged;
             listTorns.SelectedIndexChanged += listTorns_SelectedIndexChanged;
@@ -45,8 +46,6 @@ namespace EasyPadel_User
             txtPasswordActual.TextChanged += txtDadesSoci_TextChanged;
             txtPasswordNou.TextChanged += txtDadesSoci_TextChanged;
             checkBoxUpdatePassword.CheckedChanged += checkBoxUpdatePassword_CheckedChanged;
-            MarcarMenuActiuReserves(btnMevesReserves);
-            MarcarSubmenuReservesActiu(btnReservesActuals);
             MostrarPanelActiu(panelReserves);
             ActualitzarEstatBotoCancelarReserva();
             ActualitzarEstatBotoExecutarNovaReserva();
@@ -63,28 +62,6 @@ namespace EasyPadel_User
             dataGridViewReservesSoci.MultiSelect = false;
         }
 
-        private void MarcarMenuActiuReserves(Button botoActiu)
-        {
-            Button[] botonsMenu = [btnFerReserva, btnMevesReserves, btnConfiguracio];
-
-            foreach (Button boto in botonsMenu)
-            {
-                boto.UseVisualStyleBackColor = false;
-                boto.BackColor = boto == botoActiu ? Color.White : SystemColors.ControlLight;
-            }
-        }
-
-        private void MarcarSubmenuReservesActiu(Button botoActiu)
-        {
-            Button[] botonsSubmenu = [btnReservesActuals, btnReservesAnteriors, btnCancelarReserva];
-
-            foreach (Button boto in botonsSubmenu)
-            {
-                boto.UseVisualStyleBackColor = false;
-                boto.BackColor = boto == botoActiu ? Color.White : SystemColors.ControlLight;
-            }
-        }
-
         private void MostrarPanelActiu(Panel panelVisible)
         {
             panelReserves.Visible = panelVisible == panelReserves;
@@ -96,10 +73,8 @@ namespace EasyPadel_User
             ActualitzarEstatBotoActualitzarDadesSoci();
         }
 
-        private async void btnMevesReserves_Click(object sender, EventArgs e)
+        private async void menuMevesReserves_Click(object? sender, EventArgs e)
         {
-            MarcarMenuActiuReserves(btnMevesReserves);
-            MarcarSubmenuReservesActiu(btnReservesActuals);
             MostrarPanelActiu(panelReserves);
             panelActiuReserves = 1;
             await CarregarReservesActualsAsync();
@@ -107,14 +82,12 @@ namespace EasyPadel_User
 
         private async void btnReservesActuals_Click(object? sender, EventArgs e)
         {
-            MarcarSubmenuReservesActiu(btnReservesActuals);
             panelActiuReserves = 1;
             await CarregarReservesActualsAsync();
         }
 
         private async void btnReservesAnteriors_Click(object? sender, EventArgs e)
         {
-            MarcarSubmenuReservesActiu(btnReservesAnteriors);
             panelActiuReserves = 2;
             await CarregarReservesAnteriorsAsync();
         }
@@ -191,16 +164,14 @@ namespace EasyPadel_User
             };
         }
 
-        private async void btnFerReserva_Click(object sender, EventArgs e)
+        private async void menuNovaReserva_Click(object? sender, EventArgs e)
         {
-            MarcarMenuActiuReserves(btnFerReserva);
             MostrarPanelActiu(panelNovaReserva);
             await CarregarPistesDisponiblesAsync();
         }
 
-        private async void btnConfiguracio_Click(object? sender, EventArgs e)
+        private async void menuActualitzarDadesPersonals_Click(object? sender, EventArgs e)
         {
-            MarcarMenuActiuReserves(btnConfiguracio);
             MostrarPanelActiu(panelConfiguracioSoci);
             ReiniciarPanellConfiguracioSoci();
             await CarregarDadesConfiguracioSociAsync();
@@ -208,8 +179,6 @@ namespace EasyPadel_User
 
         private async void btnCancelarReserva_Click(object sender, EventArgs e)
         {
-            MarcarSubmenuReservesActiu(btnCancelarReserva);
-
             DialogResult okdialog = MessageBox.Show(
                 "Segur que vols cancelar aquesta reserva?",
                 "Cancelar reserva",
@@ -234,8 +203,6 @@ namespace EasyPadel_User
                 }
             }
 
-            MarcarMenuActiuReserves(btnMevesReserves);
-            MarcarSubmenuReservesActiu(btnReservesActuals);
             MostrarPanelActiu(panelReserves);
             panelActiuReserves = 1;
             await CarregarReservesActualsAsync();

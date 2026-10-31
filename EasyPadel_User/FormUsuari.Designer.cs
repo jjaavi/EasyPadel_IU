@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             panelLogo = new Panel();
-            lblPrincipal = new Label();
             panelReserves = new Panel();
             dataGridViewReservesSoci = new DataGridView();
             btnReservesAnteriors = new Button();
@@ -58,37 +57,43 @@
             txtEmailSoci = new TextBox();
             lblconf5 = new Label();
             ltbnconf3 = new Label();
-            btnFerReserva = new Button();
-            btnMevesReserves = new Button();
-            btnConfiguracio = new Button();
+            menuStripUsuari = new MenuStrip();
+            menuMevesReserves = new ToolStripMenuItem();
+            menuNovaReserva = new ToolStripMenuItem();
+            menuConfiguracioUsuari = new ToolStripMenuItem();
+            menuActualitzarDadesPersonals = new ToolStripMenuItem();
+            menuCanviarContrasenyaUsuari = new ToolStripMenuItem();
             btnCancelarReserva = new Button();
             panelReserves.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewReservesSoci).BeginInit();
             panelNovaReserva.SuspendLayout();
             panelConfiguracioSoci.SuspendLayout();
+            menuStripUsuari.SuspendLayout();
             SuspendLayout();
+            // 
+            // btnCancelarReserva
+            // 
+            btnCancelarReserva.BackColor = Color.White;
+            btnCancelarReserva.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancelarReserva.Location = new Point(829, 511);
+            btnCancelarReserva.Margin = new Padding(2);
+            btnCancelarReserva.Name = "btnCancelarReserva";
+            btnCancelarReserva.Size = new Size(188, 34);
+            btnCancelarReserva.TabIndex = 10;
+            btnCancelarReserva.Text = "Cancelar reserva";
+            btnCancelarReserva.UseVisualStyleBackColor = false;
+            btnCancelarReserva.Click += btnCancelarReserva_Click;
             // 
             // panelLogo
             // 
             panelLogo.BackgroundImage = Properties.Resources.EasyPadel_logo1;
             panelLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            panelLogo.Location = new Point(954, 12);
+            panelLogo.Dock = DockStyle.Bottom;
+            panelLogo.Location = new Point(0, 478);
             panelLogo.Margin = new Padding(2);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(95, 100);
+            panelLogo.Size = new Size(1061, 100);
             panelLogo.TabIndex = 2;
-            // 
-            // lblPrincipal
-            // 
-            lblPrincipal.AutoSize = true;
-            lblPrincipal.Font = new Font("Arial", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPrincipal.Location = new Point(429, 12);
-            lblPrincipal.Margin = new Padding(2, 0, 2, 0);
-            lblPrincipal.Name = "lblPrincipal";
-            lblPrincipal.Size = new Size(210, 36);
-            lblPrincipal.TabIndex = 3;
-            lblPrincipal.Text = "Panell de soci";
-            lblPrincipal.TextAlign = ContentAlignment.TopCenter;
             // 
             // panelReserves
             // 
@@ -97,10 +102,11 @@
             panelReserves.Controls.Add(btnReservesAnteriors);
             panelReserves.Controls.Add(btnReservesActuals);
             panelReserves.Controls.Add(btnCancelarReserva);
-            panelReserves.Location = new Point(12, 116);
+            panelReserves.Dock = DockStyle.Fill;
+            panelReserves.Location = new Point(0, 33);
             panelReserves.Margin = new Padding(2);
             panelReserves.Name = "panelReserves";
-            panelReserves.Size = new Size(1038, 555);
+            panelReserves.Size = new Size(1061, 545);
             panelReserves.TabIndex = 4;
             // 
             // dataGridViewReservesSoci
@@ -137,19 +143,6 @@
             btnReservesActuals.UseVisualStyleBackColor = true;
             btnReservesActuals.Click += btnReservesActuals_Click;
             // 
-            // btnCancelarReserva
-            // 
-            btnCancelarReserva.BackColor = Color.White;
-            btnCancelarReserva.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancelarReserva.Location = new Point(829, 511);
-            btnCancelarReserva.Margin = new Padding(2);
-            btnCancelarReserva.Name = "btnCancelarReserva";
-            btnCancelarReserva.Size = new Size(188, 34);
-            btnCancelarReserva.TabIndex = 10;
-            btnCancelarReserva.Text = "Cancelar reserva";
-            btnCancelarReserva.UseVisualStyleBackColor = false;
-            btnCancelarReserva.Click += btnCancelarReserva_Click;
-            // 
             // panelNovaReserva
             // 
             panelNovaReserva.BackColor = Color.White;
@@ -161,10 +154,11 @@
             panelNovaReserva.Controls.Add(monthCalendarSeleccio);
             panelNovaReserva.Controls.Add(lblNovaReserva2);
             panelNovaReserva.Controls.Add(lblNovaReserva1);
-            panelNovaReserva.Location = new Point(12, 116);
+            panelNovaReserva.Dock = DockStyle.Fill;
+            panelNovaReserva.Location = new Point(0, 33);
             panelNovaReserva.Margin = new Padding(4);
             panelNovaReserva.Name = "panelNovaReserva";
-            panelNovaReserva.Size = new Size(1038, 555);
+            panelNovaReserva.Size = new Size(1061, 545);
             panelNovaReserva.TabIndex = 11;
             // 
             // btnExecutarNovaReserva
@@ -238,7 +232,7 @@
             // 
             // panelConfiguracioSoci
             // 
-            panelConfiguracioSoci.BackColor = Color.White;
+            panelConfiguracioSoci.BackColor = Color.FromArgb(213, 221, 40);
             panelConfiguracioSoci.Controls.Add(txtTelefon);
             panelConfiguracioSoci.Controls.Add(ltbnconf4);
             panelConfiguracioSoci.Controls.Add(checkBoxUpdatePassword);
@@ -253,10 +247,11 @@
             panelConfiguracioSoci.Controls.Add(txtEmailSoci);
             panelConfiguracioSoci.Controls.Add(lblconf5);
             panelConfiguracioSoci.Controls.Add(ltbnconf3);
-            panelConfiguracioSoci.Location = new Point(12, 116);
+            panelConfiguracioSoci.Dock = DockStyle.Fill;
+            panelConfiguracioSoci.Location = new Point(0, 33);
             panelConfiguracioSoci.Margin = new Padding(4);
             panelConfiguracioSoci.Name = "panelConfiguracioSoci";
-            panelConfiguracioSoci.Size = new Size(1038, 555);
+            panelConfiguracioSoci.Size = new Size(1061, 545);
             panelConfiguracioSoci.TabIndex = 12;
             // 
             // txtTelefon
@@ -388,39 +383,46 @@
             ltbnconf3.TabIndex = 0;
             ltbnconf3.Text = "email:";
             // 
-            // btnFerReserva
+            // menuStripUsuari
             // 
-            btnFerReserva.BackColor = Color.White;
-            btnFerReserva.Location = new Point(12, 78);
-            btnFerReserva.Margin = new Padding(2);
-            btnFerReserva.Name = "btnFerReserva";
-            btnFerReserva.Size = new Size(208, 34);
-            btnFerReserva.TabIndex = 5;
-            btnFerReserva.Text = "Nova reserva";
-            btnFerReserva.UseVisualStyleBackColor = false;
-            btnFerReserva.Click += btnFerReserva_Click;
+            menuStripUsuari.ImageScalingSize = new Size(24, 24);
+            menuStripUsuari.Items.AddRange(new ToolStripItem[] { menuMevesReserves, menuNovaReserva, menuConfiguracioUsuari });
+            menuStripUsuari.Location = new Point(0, 0);
+            menuStripUsuari.Name = "menuStripUsuari";
+            menuStripUsuari.Size = new Size(1061, 33);
+            menuStripUsuari.TabIndex = 13;
+            menuStripUsuari.Text = "menuStrip1";
             // 
-            // btnMevesReserves
+            // menuMevesReserves
             // 
-            btnMevesReserves.BackColor = Color.White;
-            btnMevesReserves.Location = new Point(226, 78);
-            btnMevesReserves.Margin = new Padding(2);
-            btnMevesReserves.Name = "btnMevesReserves";
-            btnMevesReserves.Size = new Size(208, 34);
-            btnMevesReserves.TabIndex = 6;
-            btnMevesReserves.Text = "Les meves reserves";
-            btnMevesReserves.UseVisualStyleBackColor = false;
-            btnMevesReserves.Click += btnMevesReserves_Click;
+            menuMevesReserves.Name = "menuMevesReserves";
+            menuMevesReserves.Size = new Size(178, 29);
+            menuMevesReserves.Text = "Les meves reserves";
             // 
-            // btnConfiguracio
+            // menuNovaReserva
             // 
-            btnConfiguracio.Location = new Point(440, 78);
-            btnConfiguracio.Margin = new Padding(2);
-            btnConfiguracio.Name = "btnConfiguracio";
-            btnConfiguracio.Size = new Size(208, 34);
-            btnConfiguracio.TabIndex = 7;
-            btnConfiguracio.Text = "Configuració";
-            btnConfiguracio.UseVisualStyleBackColor = true;
+            menuNovaReserva.Name = "menuNovaReserva";
+            menuNovaReserva.Size = new Size(131, 29);
+            menuNovaReserva.Text = "Nova reserva";
+            // 
+            // menuConfiguracioUsuari
+            // 
+            menuConfiguracioUsuari.DropDownItems.AddRange(new ToolStripItem[] { menuActualitzarDadesPersonals, menuCanviarContrasenyaUsuari });
+            menuConfiguracioUsuari.Name = "menuConfiguracioUsuari";
+            menuConfiguracioUsuari.Size = new Size(196, 29);
+            menuConfiguracioUsuari.Text = "Configuració d'usuari";
+            // 
+            // menuActualitzarDadesPersonals
+            // 
+            menuActualitzarDadesPersonals.Name = "menuActualitzarDadesPersonals";
+            menuActualitzarDadesPersonals.Size = new Size(330, 34);
+            menuActualitzarDadesPersonals.Text = "Actualitzar dades personals";
+            // 
+            // menuCanviarContrasenyaUsuari
+            // 
+            menuCanviarContrasenyaUsuari.Name = "menuCanviarContrasenyaUsuari";
+            menuCanviarContrasenyaUsuari.Size = new Size(330, 34);
+            menuCanviarContrasenyaUsuari.Text = "Canviar contrasenya";
             // 
             // FormUsuari
             // 
@@ -428,16 +430,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(213, 221, 40);
-            ClientSize = new Size(1061, 685);
-            Controls.Add(btnConfiguracio);
-            Controls.Add(btnMevesReserves);
-            Controls.Add(btnFerReserva);
+            ClientSize = new Size(1061, 578);
+            Controls.Add(panelLogo);
             Controls.Add(panelConfiguracioSoci);
             Controls.Add(panelNovaReserva);
-            Controls.Add(panelLogo);
             Controls.Add(panelReserves);
-            Controls.Add(lblPrincipal);
+            Controls.Add(menuStripUsuari);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MainMenuStrip = menuStripUsuari;
             Margin = new Padding(2);
             MaximizeBox = false;
             Name = "FormUsuari";
@@ -449,6 +449,8 @@
             panelNovaReserva.PerformLayout();
             panelConfiguracioSoci.ResumeLayout(false);
             panelConfiguracioSoci.PerformLayout();
+            menuStripUsuari.ResumeLayout(false);
+            menuStripUsuari.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -456,11 +458,7 @@
         #endregion
 
         private Panel panelLogo;
-        private Label lblPrincipal;
         private Panel panelReserves;
-        private Button btnFerReserva;
-        private Button btnMevesReserves;
-        private Button btnConfiguracio;
         private DataGridView dataGridViewReservesSoci;
 
         private void dataGridViewReservesSoci_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -494,5 +492,11 @@
         private CheckBox checkBoxUpdatePassword;
         private TextBox txtTelefon;
         private Label ltbnconf4;
+        private MenuStrip menuStripUsuari;
+        private ToolStripMenuItem menuMevesReserves;
+        private ToolStripMenuItem menuNovaReserva;
+        private ToolStripMenuItem menuConfiguracioUsuari;
+        private ToolStripMenuItem menuActualitzarDadesPersonals;
+        private ToolStripMenuItem menuCanviarContrasenyaUsuari;
     }
 }
