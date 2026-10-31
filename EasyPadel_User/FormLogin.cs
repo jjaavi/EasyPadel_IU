@@ -96,6 +96,7 @@ namespace EasyPadel_User
 
             SessionContext.UsuariId = loginResponse.IdUsuari.Value;
             SessionContext.Rol = loginResponse.Rol;
+            SessionContext.EmailUsuari = textBoxUsuari.Text.Trim();
 
             Form newForm;
             if (string.Equals(loginResponse.Rol, "ADMIN", StringComparison.OrdinalIgnoreCase))
@@ -142,5 +143,7 @@ namespace EasyPadel_User
         public static int UsuariId { get; set; }
 
         public static string Rol { get; set; } = string.Empty;
+
+        public static string EmailUsuari { get; set; } = string.Empty;
     }
 }
