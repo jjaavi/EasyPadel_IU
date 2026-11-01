@@ -35,7 +35,6 @@ namespace EasyPadel_User
             menuMevesReserves.Click += menuMevesReserves_Click;
             menuNovaReserva.Click += menuNovaReserva_Click;
             menuActualitzarDadesPersonals.Click += menuActualitzarDadesPersonals_Click;
-            menuCanviarContrasenyaUsuari.Click += menuCanviarContrasenyaUsuari_Click;
             dataGridViewReservesSoci.SelectionChanged += dataGridViewReservesSoci_SelectionChanged;
             listPistesDisponibles.SelectedIndexChanged += listPistesDisponibles_SelectedIndexChanged;
             listTorns.SelectedIndexChanged += listTorns_SelectedIndexChanged;

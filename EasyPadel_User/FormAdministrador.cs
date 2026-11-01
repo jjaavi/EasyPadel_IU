@@ -796,7 +796,12 @@ namespace EasyPadel_User
 
         private void canviarPasswordDeAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            using Form_CanviarContrasenya formulariCanvi = new();
+            formulariCanvi.StartPosition = FormStartPosition.Manual;
+            formulariCanvi.Location = this.Location;
+            formulariCanvi.Size = new Size(426, 195);
+            formulariCanvi.MinimumSize = new Size(426, 195);
+            formulariCanvi.ShowDialog(this);
         }
 
         private sealed record ReservaResponseDto(

@@ -1,12 +1,13 @@
 using EasyPadel_User;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Xml;
 
 namespace EasyPadel
 {
     internal static class EasyPadelMain
     {
-        private const string BackendJarPath = @"..\..\..\server\easypadel-backend-1.2.0.jar";
+        private const string configFilePath = @"..\..\..\resources\variables.xml";
 
         private static readonly HttpClient HttpClient = new()
         {
@@ -79,7 +80,13 @@ namespace EasyPadel
 
         private static bool StartServerBackendProcess()
         {
-            string jarPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, BackendJarPath));
+            string? path = GetServerPathFromXml();
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                return false;
+            }
+
+            string jarPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, path));
             if (!File.Exists(jarPath))
             {
                 return false;
@@ -115,6 +122,27 @@ namespace EasyPadel
             {
                 return false;
             }
+        }
+
+        private static string? GetServerPathFromXml()
+        {
+            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, configFilePath));
+            if (!File.Exists(configPath))
+            {
+                return null;
+            }
+
+            using XmlReader reader = XmlReader.Create(configPath, new XmlReaderSettings { IgnoreComments = true, IgnoreWhitespace = true });
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "serverJarPath")
+                {
+                    string? value = reader.ReadElementContentAsString();
+                    return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+                }
+            }
+
+            return null;
         }
 
         private static void StopServerProcess()

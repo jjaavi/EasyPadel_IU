@@ -63,7 +63,10 @@ namespace EasyPadel_User
 
             try
             {
-                PasswordUpdateRequestDto request = new(nouPassword);
+                CanviarPasswordRequestDto request = new(
+                    txtPasswordActual.Text.Trim(),
+                    nouPassword);
+
                 using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
                     $"http://localhost:8080/api/usuaris/{SessionContext.UsuariId}/password",
                     request);
@@ -128,7 +131,8 @@ namespace EasyPadel_User
             [property: JsonPropertyName("email")] string Email,
             [property: JsonPropertyName("password")] string Password);
 
-        private sealed record PasswordUpdateRequestDto(
-            [property: JsonPropertyName("password")] string Password);
+        private sealed record CanviarPasswordRequestDto(
+            [property: JsonPropertyName("passwordActual")] string PasswordActual,
+            [property: JsonPropertyName("novaPassword")] string NovaPassword);
     }
 }
