@@ -231,6 +231,57 @@ namespace EasyPadel_User
                 return;
             }
 
+            if (enManteniment)
+            {
+                List<ReservaPistaResponseDto> reservesPerPista;
+                try
+                {
+                    reservesPerPista = await HttpClient.GetFromJsonAsync<List<ReservaPistaResponseDto>>(
+                        $"http://localhost:8080/api/reserves/pista/{pistaSeleccionada.Id}") ?? [];
+                }
+                catch
+                {
+                    MessageBox.Show("Error recuperant les reserves de la pista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (reservesPerPista.Count > 0)
+                {
+                    string llistaReserves = string.Join(
+                        Environment.NewLine,
+                        reservesPerPista.Select(r => $"{r.Id} - {r.Data}"));
+
+                    DialogResult confirmacioEliminacio = MessageBox.Show(
+                        $"Aquesta pista esta asociada a les seguents reserves:\n{llistaReserves}\n\nS'han d'eliminar les següents reserver per a poder posar la pista en manteniment, segur que vols fer-ho?",
+                        "Confirmació",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (confirmacioEliminacio != DialogResult.Yes)
+                    {
+                        return;
+                    }
+
+                    foreach (ReservaPistaResponseDto reserva in reservesPerPista)
+                    {
+                        try
+                        {
+                            using HttpResponseMessage responseDelete = await HttpClient.DeleteAsync($"http://localhost:8080/api/reserves/{reserva.Id}");
+                            if (!responseDelete.IsSuccessStatusCode)
+                            {
+                                MessageBox.Show($"No s'ha pogut eliminar la reserva {reserva.Id} correctament.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Error eliminant les reserves associades a la pista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+            }
+
             PistaUpdateRequestDto request = new(nomPista, !enManteniment);
 
             try
@@ -858,5 +909,13 @@ namespace EasyPadel_User
         private sealed record PistaCreateRequestDto(
             [property: JsonPropertyName("nom")] string Nom,
             [property: JsonPropertyName("activa")] bool Activa);
+
+        private sealed record ReservaPistaResponseDto(
+            [property: JsonPropertyName("id")] int Id,
+            [property: JsonPropertyName("data")] string? Data,
+            [property: JsonPropertyName("usuari")] string? Usuari,
+            [property: JsonPropertyName("usuariId")] int? UsuariId,
+            [property: JsonPropertyName("usuariNom")] string? UsuariNom,
+            [property: JsonPropertyName("usuariCognom")] string? UsuariCognom);
     }
 }
