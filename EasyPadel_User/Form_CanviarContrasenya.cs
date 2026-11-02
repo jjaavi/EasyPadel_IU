@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json.Serialization;
 using System.Windows.Forms;
 
@@ -47,24 +48,17 @@ namespace EasyPadel_User
                 return;
             }
 
-            bool passwordActualCorrecta = await ValidarPasswordActualAsync();
-            if (!passwordActualCorrecta)
-            {
-                MessageBox.Show("La contrasenya actual no és correcta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string nouPassword= txtPasswordNou.Text.Trim();
+            string nouPassword = txtPasswordNou.Text.Trim();
             if (!validarFormatPassword(nouPassword))
             {
-                MessageBox.Show("La nova contrasenya ha de tenir entre 8 i 20 caràcters i contenir almenys un número i un caràcter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La nova contrasenya ha de tenir entre 8 i 20 caràcters, contenir almenys un número i un caràcter especial, i no superar 72 bytes UTF-8.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                CanviarPasswordRequestDto request = new(
-                    txtPasswordActual.Text.Trim(),
+                PasswordRequestDto request = new(
+                    txtPasswordActual.Text,
                     nouPassword);
 
                 using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
@@ -79,7 +73,7 @@ namespace EasyPadel_User
                 }
                 else
                 {
-                    MessageBox.Show("No s'ha pogut canviar la contrasenya.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No s'ha pogut canviar la contrasenya. Revisa que la contrasenya actual sigui correcta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch
@@ -94,7 +88,7 @@ namespace EasyPadel_User
             Close();
         }
 
-        private bool validarFormatPassword(string nouPassword)
+        private static bool validarFormatPassword(string nouPassword)
         {
             if (nouPassword.Length < 8 || nouPassword.Length > 20)
             {
@@ -105,33 +99,16 @@ namespace EasyPadel_User
             {
                 return false;
             }
+
+            if (Encoding.UTF8.GetByteCount(nouPassword) > 72)
+            {
+                return false;
+            }
+
             return true;
         }
 
-        private async Task<bool> ValidarPasswordActualAsync()
-        {
-            if (string.IsNullOrWhiteSpace(SessionContext.EmailUsuari))
-            {
-                return false;
-            }
-
-            LoginRequestDto loginRequest = new(SessionContext.EmailUsuari, txtPasswordActual.Text.Trim());
-            try
-            {
-                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync("http://localhost:8080/api/usuaris/login", loginRequest);
-                return response.IsSuccessStatusCode;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private sealed record LoginRequestDto(
-            [property: JsonPropertyName("email")] string Email,
-            [property: JsonPropertyName("password")] string Password);
-
-        private sealed record CanviarPasswordRequestDto(
+        private sealed record PasswordRequestDto(
             [property: JsonPropertyName("passwordActual")] string PasswordActual,
             [property: JsonPropertyName("novaPassword")] string NovaPassword);
     }

@@ -40,7 +40,7 @@
             // 
             txtPasswordNou.BorderStyle = BorderStyle.FixedSingle;
             txtPasswordNou.Location = new Point(160, 49);
-            txtPasswordNou.MaxLength = 14;
+            txtPasswordNou.MaxLength = 20;
             txtPasswordNou.Name = "txtPasswordNou";
             txtPasswordNou.PasswordChar = '*';
             txtPasswordNou.Size = new Size(228, 31);
@@ -68,7 +68,7 @@
             // 
             txtPasswordActual.BorderStyle = BorderStyle.FixedSingle;
             txtPasswordActual.Location = new Point(160, 12);
-            txtPasswordActual.MaxLength = 14;
+            txtPasswordActual.MaxLength = 100;
             txtPasswordActual.Name = "txtPasswordActual";
             txtPasswordActual.PasswordChar = '*';
             txtPasswordActual.Size = new Size(228, 31);
