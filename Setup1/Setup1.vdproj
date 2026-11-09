@@ -33,6 +33,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AB039F3071394CDEAB9EEDC5A2F5D13A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C2D3D6037DDC4938ACE0D0C2D3169E21"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -200,6 +206,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AB039F3071394CDEAB9EEDC5A2F5D13A"
+            {
+            "SourcePath" = "8:..\\EasyPadel_User\\server\\application.properties"
+            "TargetName" = "8:application.properties"
+            "Tag" = "8:"
+            "Folder" = "8:_6A0B28B4901F476794F5DCCF015E17AE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E09C6D8CE58E4049953C61C3528C59A0"
             {
             "SourcePath" = "8:..\\EasyPadel_User\\server\\easypadel-backend-2.0.0.jar"
@@ -299,7 +325,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EasyPadel"
         "ProductCode" = "8:{38016227-F93C-4EB3-8C7D-C557BE9C35FF}"
-        "PackageCode" = "8:{613D90A4-FC8A-47E5-8EE7-8DE10830FD52}"
+        "PackageCode" = "8:{99BB1678-1943-4B94-990A-B35551F05190}"
         "UpgradeCode" = "8:{7399F1E2-D75F-41E6-97E1-B295D96C42D9}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -419,6 +445,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6D4FAB02407140DAAFD0CAE1DD27C31B"
+            {
+            "Name" = "8:EasyPadel"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_C2D3D6037DDC4938ACE0D0C2D3169E21"
+            "Folder" = "8:_CAE38D749D6649AF863907F479E4AAC4"
+            "WorkingFolder" = "8:_434944F8C8BA462598F6D265B4547908"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E1D689CBC98F45C693FAD4D5FC7CC0A2"
+            {
+            "Name" = "8:EasyPadel"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_C2D3D6037DDC4938ACE0D0C2D3169E21"
+            "Folder" = "8:_D4111D9DEC814354914304A37DF03827"
+            "WorkingFolder" = "8:_434944F8C8BA462598F6D265B4547908"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

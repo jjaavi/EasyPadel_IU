@@ -16,6 +16,12 @@ namespace EasyPadel_User
 
         private void btnInstalarBD_Click(object? sender, EventArgs e)
         {
+            MessageBox.Show(
+                "Per poder instalar la base de dades es necesari iniciar l'aplicació amb permisos elevats d'administrador.",
+                "Informació",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
             string host = txtHost.Text.Trim();
             string port = txtPort.Text.Trim();
             string adminUser = txtUserAdmin.Text.Trim();
@@ -109,9 +115,12 @@ namespace EasyPadel_User
                 
                 DialogResult = DialogResult.OK;
             }
-            catch
+            catch (Exception exception)
             {
-                MessageBox.Show("No s'ha pogut preparar la configuració inicial de base de dades.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No s'ha pogut preparar la configuració inicial de base de dades." + Environment.NewLine +
+                    exception.Message,    
+                    "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
