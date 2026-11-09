@@ -110,7 +110,7 @@ namespace EasyPadel
 
         private static bool IsServerReady()
         {
-            using HttpResponseMessage response = HttpClient.GetAsync($"{BaseApiUrl}/status").GetAwaiter().GetResult();
+            using HttpResponseMessage response = HttpClient.GetAsync($"http://localhost:8080/status").GetAwaiter().GetResult();
             return response.IsSuccessStatusCode;
         }
 
@@ -147,26 +147,27 @@ namespace EasyPadel
         private static string? GetServerPathFromXml()
         {
             string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, variablesFilePath));
-            if (!File.Exists(configPath))
+
+            using XmlReader reader = XmlReader.Create(configPath, new XmlReaderSettings { IgnoreComments = true, IgnoreWhitespace = true });
+            while (reader.Read())
             {
-                return null;
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "serverJarPath")
+                {
+                    string? value = reader.ReadElementContentAsString();
+                    return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+                }
             }
 
-            XmlDocument doc = new();
-            doc.Load(configPath);
-
-            XmlNode? serverJarPathNode = doc.SelectSingleNode("/variables/serverJarPath");
-            string? value = serverJarPathNode?.InnerText;
-            return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+            return null;
         }
 
         private static bool PrimerIniciCreacioDB()
         {
             string applicationPropertiesPath = Path.Combine(AppContext.BaseDirectory, "server", "application.properties");
-            //if (File.Exists(applicationPropertiesPath))
-            //{
-            //    return true;
-            //}
+            if (File.Exists(applicationPropertiesPath))
+            {
+                return true;
+            }
 
             using var formInicioBd = new FormInicioBD();
             DialogResult result = formInicioBd.ShowDialog();
