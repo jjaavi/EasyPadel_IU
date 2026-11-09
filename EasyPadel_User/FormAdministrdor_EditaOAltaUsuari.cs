@@ -11,14 +11,16 @@ namespace EasyPadel_User
         private static readonly HttpClient HttpClient = new();
         private static readonly char[] PasswordSpecialChars = "!@#$%^&*()-_=+[]{}".ToCharArray();
 
+        private readonly string baseApiUrl;
         private readonly bool modificar;
         private readonly int? usuariId;
         private readonly bool actiuDataGrid;
         private bool missatgePasswordMostrat;
 
-        public FormAdministrdor_EditaOAltaUsuari(bool modificar, int? usuariId = null, string nom = "", string cognom = "", string telefon = "", string email = "", bool admin = false, bool actiu = true)
+        public FormAdministrdor_EditaOAltaUsuari(string baseApiUrl, bool modificar, int? usuariId = null, string nom = "", string cognom = "", string telefon = "", string email = "", bool admin = false, bool actiu = true)
         {
             InitializeComponent();
+            this.baseApiUrl = baseApiUrl;
             this.modificar = modificar;
             this.usuariId = usuariId;
             actiuDataGrid = actiu;
@@ -113,7 +115,7 @@ namespace EasyPadel_User
                 try
                 {
                     using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
-                        $"http://localhost:8080/api/usuaris/{usuariId.Value}",
+                        $"{baseApiUrl}/api/usuaris/{usuariId.Value}",
                         request);
 
                     if (response.IsSuccessStatusCode)
@@ -158,7 +160,7 @@ namespace EasyPadel_User
                 try
                 {
                     using HttpResponseMessage response = await HttpClient.PostAsJsonAsync(
-                        "http://localhost:8080/api/usuaris",
+                        $"{baseApiUrl}/api/usuaris",
                         createRequest);
 
                     if (response.IsSuccessStatusCode)

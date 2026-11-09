@@ -8,6 +8,7 @@ namespace EasyPadel_User
     {
         private static readonly HttpClient HttpClient = new();
         private static int panelActiuReserves = 1;
+        private readonly string baseApiUrl;
         private bool carregantPistes;
         private bool carregantDadesSoci;
         private string nomSociOriginal = string.Empty;
@@ -28,9 +29,10 @@ namespace EasyPadel_User
             monthCalendarSeleccio.MaxSelectionCount = 1; // opcional, para seleccionar solo un día
         }
 
-        public FormUsuari()
+        public FormUsuari(string baseApiUrl)
         {
             InitializeComponent();
+            this.baseApiUrl = baseApiUrl;
             InicialitzarGridReserves();
             menuMevesReserves.Click += menuMevesReserves_Click;
             menuNovaReserva.Click += menuNovaReserva_Click;
@@ -91,13 +93,13 @@ namespace EasyPadel_User
 
         private async Task CarregarReservesActualsAsync()
         {
-            await CarregarReservesDataGrid($"http://localhost:8080/api/reserves/usuari/{SessionContext.UsuariId}/posteriors");
+            await CarregarReservesDataGrid($"{baseApiUrl}/api/reserves/usuari/{SessionContext.UsuariId}/posteriors");
         }
 
         private async Task CarregarReservesAnteriorsAsync()
         {
             string dataActual = DateTime.Today.ToString("yyyy-MM-dd");
-            await CarregarReservesDataGrid($"http://localhost:8080/api/reserves/usuari/{SessionContext.UsuariId}/anteriors?data={dataActual}");
+            await CarregarReservesDataGrid($"{baseApiUrl}/api/reserves/usuari/{SessionContext.UsuariId}/anteriors?data={dataActual}");
         }
 
         private async Task CarregarReservesDataGrid(string endpoint)
@@ -188,7 +190,7 @@ namespace EasyPadel_User
 
                 try
                 {
-                    using HttpResponseMessage response = await HttpClient.DeleteAsync($"http://localhost:8080/api/reserves/{reservaId}");
+                    using HttpResponseMessage response = await HttpClient.DeleteAsync($"{baseApiUrl}/api/reserves/{reservaId}");
                     if (!response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("No s'ha pogut cancelar la reserva.");
@@ -242,7 +244,7 @@ namespace EasyPadel_User
             {
                 carregantPistes = true;
 
-                List<PistaDisponibleDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaDisponibleDto>>("http://localhost:8080/api/pistes/actives")
+                List<PistaDisponibleDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaDisponibleDto>>($"{baseApiUrl}/api/pistes/actives")
                     ?? new List<PistaDisponibleDto>();
 
                 listPistesDisponibles.DataSource = pistes;
@@ -271,7 +273,7 @@ namespace EasyPadel_User
             {
                 string dataSeleccionada = monthCalendarSeleccio.SelectionStart.ToString("yyyy-MM-dd");
                 DisponibilitatPistaResponseDto? resposta = await HttpClient.GetFromJsonAsync<DisponibilitatPistaResponseDto>(
-                    $"http://localhost:8080/api/reserves/disponibilitat/{pistaId}?data={dataSeleccionada}");
+                    $"{baseApiUrl}/api/reserves/disponibilitat/{pistaId}?data={dataSeleccionada}");
 
                 DateTime dataSeleccionadaDate = monthCalendarSeleccio.SelectionStart.Date;
                 DateTime now = DateTime.Now;
@@ -314,7 +316,7 @@ namespace EasyPadel_User
 
             try
             {
-                UsuariConfiguracioDto? usuari = await HttpClient.GetFromJsonAsync<UsuariConfiguracioDto>($"http://localhost:8080/api/usuaris/{SessionContext.UsuariId}");
+                UsuariConfiguracioDto? usuari = await HttpClient.GetFromJsonAsync<UsuariConfiguracioDto>($"{baseApiUrl}/api/usuaris/{SessionContext.UsuariId}");
 
                 if (usuari is null)
                 {
@@ -442,7 +444,7 @@ namespace EasyPadel_User
                     dataSeleccio.ToString("yyyy-MM-dd"),
                     tornSeleccionat.Torn);
 
-                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync("http://localhost:8080/api/reserves", reservaRequest);
+                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync($"{baseApiUrl}/api/reserves", reservaRequest);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -481,7 +483,7 @@ namespace EasyPadel_User
             try
             {
                 using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
-                    $"http://localhost:8080/api/usuaris/{SessionContext.UsuariId}",
+                    $"{baseApiUrl}/api/usuaris/{SessionContext.UsuariId}",
                     request);
 
                 if (response.IsSuccessStatusCode)
@@ -503,7 +505,7 @@ namespace EasyPadel_User
 
         private async void menuCanviarContrasenyaUsuari_Click(object? sender, EventArgs e)
         {
-            using Form_CanviarContrasenya formulariCanvi = new();
+            using Form_CanviarContrasenya formulariCanvi = new(baseApiUrl);
             formulariCanvi.StartPosition = FormStartPosition.Manual;
             formulariCanvi.Location = this.Location;
             formulariCanvi.Size = new Size(426, 195);

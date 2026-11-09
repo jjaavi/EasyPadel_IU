@@ -7,7 +7,7 @@ namespace EasyPadel
 {
     internal static class EasyPadelMain
     {
-        private const string configFilePath = @"..\..\..\resources\variables.xml";
+        private const string variablesFilePath = @"Resources\variables.xml";
 
         private static readonly HttpClient HttpClient = new()
         {
@@ -16,6 +16,7 @@ namespace EasyPadel
 
         private static Process? serverProcess;
         private static int serverProcessId;
+        private static string BaseApiUrl = string.Empty;
 
         /// <summary>
         ///  The main entry point for the application.
@@ -26,6 +27,16 @@ namespace EasyPadel
             ApplicationConfiguration.Initialize();
             Application.ApplicationExit += (_, _) => StopServerProcess();
 
+            if (!PrimerIniciCreacioDB())
+            {
+                return;
+            }
+
+            String host = string.Empty;
+            String port = string.Empty;
+            (host, port) = GetHostAndPortFromVariablesXml();
+            BaseApiUrl = $"http://{host}:{port}";
+
             if (!TryStartBackendAndWaitUntilReady())
             {
                 MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
@@ -33,7 +44,7 @@ namespace EasyPadel
                 return;
             }
 
-            Application.Run(new FormLogin());
+            Application.Run(new FormLogin(BaseApiUrl));
         }
 
         private static bool TryStartBackendAndWaitUntilReady()
@@ -42,40 +53,26 @@ namespace EasyPadel
             loadingDialog.Show();
             loadingDialog.Refresh();
 
-            try
-            {
-                bool started = Task.Run(StartServerBackendProcess).GetAwaiter().GetResult();
-                if (!started)
-                {
-                    return false;
-                }
-
-                Stopwatch timeout = Stopwatch.StartNew();
-                while (timeout.Elapsed < TimeSpan.FromSeconds(30))
-                {
-                    Application.DoEvents();
-
-                    if (IsServerReady())
-                    {
-                        return true;
-                    }
-
-                    Thread.Sleep(500);
-                }
-
-                return false;
-            }
-            catch
+            bool started = Task.Run(StartServerBackendProcess).GetAwaiter().GetResult();
+            if (!started)
             {
                 return false;
             }
-            finally
+
+            Stopwatch timeout = Stopwatch.StartNew();
+            while (timeout.Elapsed < TimeSpan.FromSeconds(30))
             {
-                if (!loadingDialog.IsDisposed)
+                Application.DoEvents();
+
+                if (IsServerReady())
                 {
-                    loadingDialog.Close();
+                    return true;
                 }
+
+                Thread.Sleep(500);
             }
+
+            return false;
         }
 
         private static bool StartServerBackendProcess()
@@ -95,7 +92,7 @@ namespace EasyPadel
             var startInfo = new ProcessStartInfo
             {
                 FileName = "java",
-                Arguments = $"-jar \"{jarPath}\"",
+                Arguments = $"-jar \"{jarPath}\" --spring.config.additional-location=file:application.properties",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 WorkingDirectory = Path.GetDirectoryName(jarPath) ?? string.Empty
@@ -113,36 +110,67 @@ namespace EasyPadel
 
         private static bool IsServerReady()
         {
-            try
+            using HttpResponseMessage response = HttpClient.GetAsync($"{BaseApiUrl}/status").GetAwaiter().GetResult();
+            return response.IsSuccessStatusCode;
+        }
+
+        private static (string host, string port) GetHostAndPortFromVariablesXml()
+        {
+            string host = string.Empty;
+            string port = string.Empty;
+
+            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, variablesFilePath));
+            if (!File.Exists(configPath))
             {
-                using HttpResponseMessage response = HttpClient.GetAsync("http://localhost:8080/status").GetAwaiter().GetResult();
-                return response.IsSuccessStatusCode;
+                return (host, port);
             }
-            catch
+
+            XmlDocument doc = new();
+            doc.Load(configPath);
+
+            XmlNode? hostNode = doc.SelectSingleNode("/variables/host");
+            XmlNode? portNode = doc.SelectSingleNode("/variables/port");
+
+            if (hostNode is not null)
             {
-                return false;
+                host = hostNode.InnerText.Trim();
             }
+
+            if (portNode is not null)
+            {
+                port = portNode.InnerText.Trim();
+            }
+
+            return (host, port);
         }
 
         private static string? GetServerPathFromXml()
         {
-            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, configFilePath));
+            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, variablesFilePath));
             if (!File.Exists(configPath))
             {
                 return null;
             }
 
-            using XmlReader reader = XmlReader.Create(configPath, new XmlReaderSettings { IgnoreComments = true, IgnoreWhitespace = true });
-            while (reader.Read())
-            {
-                if (reader.NodeType == XmlNodeType.Element && reader.Name == "serverJarPath")
-                {
-                    string? value = reader.ReadElementContentAsString();
-                    return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
-                }
-            }
+            XmlDocument doc = new();
+            doc.Load(configPath);
 
-            return null;
+            XmlNode? serverJarPathNode = doc.SelectSingleNode("/variables/serverJarPath");
+            string? value = serverJarPathNode?.InnerText;
+            return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+        }
+
+        private static bool PrimerIniciCreacioDB()
+        {
+            string applicationPropertiesPath = Path.Combine(AppContext.BaseDirectory, "server", "application.properties");
+            //if (File.Exists(applicationPropertiesPath))
+            //{
+            //    return true;
+            //}
+
+            using var formInicioBd = new FormInicioBD();
+            DialogResult result = formInicioBd.ShowDialog();
+            return result == DialogResult.OK;
         }
 
         private static void StopServerProcess()

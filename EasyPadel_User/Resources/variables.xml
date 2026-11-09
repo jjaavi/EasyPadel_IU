@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <variables>
-  <serverJarPath>..\..\..\server\easypadel-backend-2.0.0.jar</serverJarPath>
+  <serverJarPath>server\easypadel-backend-2.0.0.jar</serverJarPath>
+  <host>localhost</host>
+  <port>3306</port>
 </variables>

@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="EasyPadel_User/EasyPadel_User.csproj" />
+  <Project Path="Setup1/Setup1.vdproj" Type="Installer">
+    <Build />
+  </Project>
 </Solution>
