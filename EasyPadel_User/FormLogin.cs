@@ -6,13 +6,12 @@ namespace EasyPadel_User
     {
         private const string PlaceholderUsuari = "Correu electrònic";
         private const string PlaceholderPassword = "Contrasenya";
+        private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
-        private readonly string baseApiUrl;
 
-        public FormLogin(string baseApiUrl)
+        public FormLogin()
         {
             InitializeComponent();
-            this.baseApiUrl = baseApiUrl;
             InicialitzarPlaceholders();
         }
 
@@ -86,7 +85,7 @@ namespace EasyPadel_User
                 return;
             }
 
-            LoginResponseDto? loginResponse = await ejecutarLogin(baseApiUrl, textBoxUsuari.Text.Trim(), textBoxPassword.Text);
+            LoginResponseDto? loginResponse = await ejecutarLogin(textBoxUsuari.Text.Trim(), textBoxPassword.Text);
             if (loginResponse is null ||
                 !loginResponse.Correcte ||
                 loginResponse.IdUsuari is null ||
@@ -103,11 +102,11 @@ namespace EasyPadel_User
             Form newForm;
             if (string.Equals(loginResponse.Rol, "ADMIN", StringComparison.OrdinalIgnoreCase))
             {
-                newForm = new FormAdministrador(baseApiUrl);
+                newForm = new FormAdministrador();
             }
             else
             {
-                newForm = new FormUsuari(baseApiUrl);
+                newForm = new FormUsuari();
             }
 
             Hide();
@@ -115,13 +114,13 @@ namespace EasyPadel_User
             newForm.Show();
         }
 
-        private static async Task<LoginResponseDto?> ejecutarLogin(string baseApiUrl, string email, string password)
+        private static async Task<LoginResponseDto?> ejecutarLogin(string email, string password)
         {
             var loginRequest = new LoginRequestDto(email, password);
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync($"{baseApiUrl}/api/usuaris/login", loginRequest);
+                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync($"{BaseApiUrl}/api/usuaris/login", loginRequest);
                 if (!response.IsSuccessStatusCode)
                 {
                     return null;

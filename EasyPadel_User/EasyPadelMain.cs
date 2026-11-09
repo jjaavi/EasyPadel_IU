@@ -16,7 +16,6 @@ namespace EasyPadel
 
         private static Process? serverProcess;
         private static int serverProcessId;
-        private static string BaseApiUrl = string.Empty;
 
         /// <summary>
         ///  The main entry point for the application.
@@ -32,11 +31,6 @@ namespace EasyPadel
                 return;
             }
 
-            String host = string.Empty;
-            String port = string.Empty;
-            (host, port) = GetHostAndPortFromVariablesXml();
-            BaseApiUrl = $"http://{host}:{port}";
-
             if (!TryStartBackendAndWaitUntilReady())
             {
                 MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
@@ -44,7 +38,7 @@ namespace EasyPadel
                 return;
             }
 
-            Application.Run(new FormLogin(BaseApiUrl));
+            Application.Run(new FormLogin());
         }
 
         private static bool TryStartBackendAndWaitUntilReady()
@@ -112,36 +106,6 @@ namespace EasyPadel
         {
             using HttpResponseMessage response = HttpClient.GetAsync($"http://localhost:8080/status").GetAwaiter().GetResult();
             return response.IsSuccessStatusCode;
-        }
-
-        private static (string host, string port) GetHostAndPortFromVariablesXml()
-        {
-            string host = string.Empty;
-            string port = string.Empty;
-
-            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, variablesFilePath));
-            if (!File.Exists(configPath))
-            {
-                return (host, port);
-            }
-
-            XmlDocument doc = new();
-            doc.Load(configPath);
-
-            XmlNode? hostNode = doc.SelectSingleNode("/variables/host");
-            XmlNode? portNode = doc.SelectSingleNode("/variables/port");
-
-            if (hostNode is not null)
-            {
-                host = hostNode.InnerText.Trim();
-            }
-
-            if (portNode is not null)
-            {
-                port = portNode.InnerText.Trim();
-            }
-
-            return (host, port);
         }
 
         private static string? GetServerPathFromXml()

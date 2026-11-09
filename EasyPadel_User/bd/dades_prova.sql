@@ -27,15 +27,25 @@ INSERT INTO reserves (usuari_id, pista_id, data, torn)
 SELECT u.id, p.id, DATE_ADD(CURRENT_DATE, INTERVAL prova.dies DAY), prova.torn
 FROM (
     SELECT 'marc.garcia@gmail.com' AS email, 'Pista 1' AS pista, -3 AS dies, 1 AS torn
-    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 2', 1, 3
-    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 3', -2, 2
-    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 4', 2, 4
-    UNION ALL SELECT 'pau.serra@gmail.com', 'Pista 5', -1, 3
-    UNION ALL SELECT 'pau.serra@gmail.com', 'Pista 6', 3, 5
-    UNION ALL SELECT 'anna.vidal@gmail.com', 'Pista 7', 0, 4
-    UNION ALL SELECT 'anna.vidal@gmail.com', 'Pista 8', 4, 6
-    UNION ALL SELECT 'joan.ferrer@gmail.com', 'Pista 9', 0, 5
-    UNION ALL SELECT 'joan.ferrer@gmail.com', 'Pista 1', 5, 7
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 2', -1, 3
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 3', 2, 5
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 4', 6, 2
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 1', 8, 4
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 2', 10, 6
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 1', 3, 2
+    UNION ALL SELECT 'marc.garcia@gmail.com', 'Pista 3', 9, 7
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 4', -2, 2
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 1', 1, 4
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 5', 4, 6
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 2', 5, 1
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 3', 7, 3
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 4', 9, 5
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 2', 2, 6
+    UNION ALL SELECT 'laura.pons@gmail.com', 'Pista 1', 10, 5
+    UNION ALL SELECT 'jjaavi@gmail.com', 'Pista 2', 0, 7
+    UNION ALL SELECT 'jjaavi@gmail.com', 'Pista 3', 3, 1
+    UNION ALL SELECT 'jjaavi@gmail.com', 'Pista 4', 5, 3
+    UNION ALL SELECT 'jjaavi@gmail.com', 'Pista 5', 6, 5
 ) AS prova
 JOIN usuaris u ON u.email = prova.email
 JOIN pistes p ON p.nom = prova.pista;

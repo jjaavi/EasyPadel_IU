@@ -10,13 +10,12 @@ namespace EasyPadel_User
 {
     public partial class FormAdministrador : Form
     {
+        private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
-        private readonly string baseApiUrl;
 
-        public FormAdministrador(string baseApiUrl)
+        public FormAdministrador()
         {
             InitializeComponent();
-            this.baseApiUrl = baseApiUrl;
             menuReserves.Click += menuReserves_Click;
             menuUsuaris.Click += menuUsuaris_Click;
             manuMantenimentPistes.Click += manuMantenimentPistes_Click;
@@ -140,7 +139,7 @@ namespace EasyPadel_User
         {
             try
             {
-                List<PistaMantenimentDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaMantenimentDto>>($"{baseApiUrl}/api/pistes")
+                List<PistaMantenimentDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaMantenimentDto>>($"{BaseApiUrl}/api/pistes")
                     ?? [];
 
                 List<PistaListItem> pistesListBox = pistes
@@ -239,7 +238,7 @@ namespace EasyPadel_User
                 try
                 {
                     reservesPerPista = await HttpClient.GetFromJsonAsync<List<ReservaPistaResponseDto>>(
-                        $"{baseApiUrl}/api/reserves/pista/{pistaSeleccionada.Id}") ?? [];
+                        $"{BaseApiUrl}/api/reserves/pista/{pistaSeleccionada.Id}") ?? [];
                 }
                 catch
                 {
@@ -268,7 +267,7 @@ namespace EasyPadel_User
                     {
                         try
                         {
-                            using HttpResponseMessage responseDelete = await HttpClient.DeleteAsync($"{baseApiUrl}/api/reserves/{reserva.Id}");
+                            using HttpResponseMessage responseDelete = await HttpClient.DeleteAsync($"{BaseApiUrl}/api/reserves/{reserva.Id}");
                             if (!responseDelete.IsSuccessStatusCode)
                             {
                                 MessageBox.Show($"No s'ha pogut eliminar la reserva {reserva.Id} correctament.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -289,7 +288,7 @@ namespace EasyPadel_User
             try
             {
                 using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
-                    $"{baseApiUrl}/api/pistes/{pistaSeleccionada.Id}",
+                    $"{BaseApiUrl}/api/pistes/{pistaSeleccionada.Id}",
                     request);
 
                 if (response.IsSuccessStatusCode)
@@ -322,7 +321,7 @@ namespace EasyPadel_User
             try
             {
                 using HttpResponseMessage response = await HttpClient.PostAsJsonAsync(
-                    $"{baseApiUrl}/api/pistes",
+                    $"{BaseApiUrl}/api/pistes",
                     request);
 
                 if (response.IsSuccessStatusCode)
@@ -345,7 +344,7 @@ namespace EasyPadel_User
         private async Task CarregarProperes20ReservesAsync()
         {
             string dateToday = DateTime.Today.ToString("yyyy-MM-dd");
-            string endpoint = $"{baseApiUrl}/api/reserves/properes?data={Uri.EscapeDataString(dateToday)}";
+            string endpoint = $"{BaseApiUrl}/api/reserves/properes?data={Uri.EscapeDataString(dateToday)}";
 
             try
             {
@@ -533,7 +532,7 @@ namespace EasyPadel_User
                 stringList.Add($"torn={torn.Value}");
             }
 
-            return $"{baseApiUrl}/api/reserves/cercaAdmin?{string.Join("&", stringList)}";
+            return $"{BaseApiUrl}/api/reserves/cercaAdmin?{string.Join("&", stringList)}";
         }
 
         private string GenerateEndpointCercaAdminUsuaris(int? usuariId, string? nom, string? cognom, string? email, string? rol, bool actiu, string? dataAlta)
@@ -579,7 +578,7 @@ namespace EasyPadel_User
                 stringList.Add($"dataAlta={Uri.EscapeDataString(dataAlta)}");
             }
 
-            return $"{baseApiUrl}/api/usuaris/cercaAdmin?{string.Join("&", stringList)}";
+            return $"{BaseApiUrl}/api/usuaris/cercaAdmin?{string.Join("&", stringList)}";
         }
 
         private void ActualitzarGridReserves(List<ReservaResponseDto> reserves)
@@ -661,7 +660,7 @@ namespace EasyPadel_User
 
         private async void MostrarFormEditaOAltaUsuari(bool modificar, int? usuariId = null, string nom = "", string cognom = "", string telefon = "", string email = "", bool admin = false, bool actiu = true)
         {
-            using FormAdministrdor_EditaOAltaUsuari formulariUsuari = new(baseApiUrl, modificar, usuariId, nom, cognom, telefon, email, admin, actiu);
+            using FormAdministrdor_EditaOAltaUsuari formulariUsuari = new(modificar, usuariId, nom, cognom, telefon, email, admin, actiu);
             formulariUsuari.StartPosition = FormStartPosition.Manual;
             formulariUsuari.Location = Location;
             formulariUsuari.Size = new Size(366, 397);
@@ -687,7 +686,7 @@ namespace EasyPadel_User
             string tornText = Convert.ToString(fila.Cells["Torn"].Value) ?? string.Empty;
             int torn = getTornComboBoxIndex(tornText);
 
-            using FormAdministrador_EditarReserva formulariEditarReserva = new(baseApiUrl, reservaId, usuariId, pistaId, data, torn);
+            using FormAdministrador_EditarReserva formulariEditarReserva = new(reservaId, usuariId, pistaId, data, torn);
             formulariEditarReserva.StartPosition = FormStartPosition.Manual;
             formulariEditarReserva.Location = this.Location;
             formulariEditarReserva.Size = new Size(389, 378);
@@ -722,7 +721,7 @@ namespace EasyPadel_User
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.DeleteAsync($"{baseApiUrl}/api/reserves/{reservaId}");
+                using HttpResponseMessage response = await HttpClient.DeleteAsync($"{BaseApiUrl}/api/reserves/{reservaId}");
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Reserva eliminada correctament", "Reserva eliminada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -764,7 +763,7 @@ namespace EasyPadel_User
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.PutAsync($"{baseApiUrl}/api/usuaris/{usuariId}/baixa", null);
+                using HttpResponseMessage response = await HttpClient.PutAsync($"{BaseApiUrl}/api/usuaris/{usuariId}/baixa", null);
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show($"Usuari {usuariId} - {nom} {cognom}  donat de baixa correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -849,7 +848,7 @@ namespace EasyPadel_User
 
         private void canviarPasswordDeAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using Form_CanviarContrasenya formulariCanvi = new(baseApiUrl);
+            using Form_CanviarContrasenya formulariCanvi = new();
             formulariCanvi.StartPosition = FormStartPosition.Manual;
             formulariCanvi.Location = this.Location;
             formulariCanvi.Size = new Size(426, 195);

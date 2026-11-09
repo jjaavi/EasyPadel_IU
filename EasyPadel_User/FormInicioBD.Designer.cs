@@ -41,14 +41,6 @@
             txtHost = new TextBox();
             SuspendLayout();
             // 
-            // txtHost
-            // 
-            txtHost.Location = new Point(295, 217);
-            txtHost.Name = "txtHost";
-            txtHost.Size = new Size(150, 31);
-            txtHost.TabIndex = 3;
-            txtHost.Text = "localhost";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -129,6 +121,14 @@
             txtPassworAdmin.Size = new Size(150, 31);
             txtPassworAdmin.TabIndex = 9;
             txtPassworAdmin.Text = "1234";
+            // 
+            // txtHost
+            // 
+            txtHost.Location = new Point(295, 217);
+            txtHost.Name = "txtHost";
+            txtHost.Size = new Size(150, 31);
+            txtHost.TabIndex = 3;
+            txtHost.Text = "localhost";
             // 
             // FormInicioBD
             // 
