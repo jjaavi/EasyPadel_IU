@@ -12,16 +12,16 @@ namespace EasyPadel_User
         {
             InitializeComponent();
             btnInstalarBD.Click += btnInstalarBD_Click;
-        }
 
-        private void btnInstalarBD_Click(object? sender, EventArgs e)
-        {
             MessageBox.Show(
                 "Per poder instalar la base de dades es necesari iniciar l'aplicació amb permisos elevats d'administrador.",
                 "Informació",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+        }
 
+        private void btnInstalarBD_Click(object? sender, EventArgs e)
+        {
             string host = txtHost.Text.Trim();
             string port = txtPort.Text.Trim();
             string adminUser = txtUserAdmin.Text.Trim();

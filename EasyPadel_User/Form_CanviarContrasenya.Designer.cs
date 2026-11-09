@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_CanviarContrasenya));
             txtPasswordNou = new TextBox();
             ltbnconf6 = new Label();
             btnCanviarContrasenya = new Button();
@@ -106,6 +107,7 @@
             Controls.Add(txtPasswordActual);
             Controls.Add(lblconf5);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form_CanviarContrasenya";
             Text = "Canviar contrasenya";
             ResumeLayout(false);

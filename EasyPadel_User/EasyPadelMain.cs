@@ -128,7 +128,8 @@ namespace EasyPadel
         private static bool PrimerIniciCreacioDB()
         {
             string applicationPropertiesPath = Path.Combine(AppContext.BaseDirectory, "server", "application.properties");
-            if (File.Exists(applicationPropertiesPath))
+            string applicationPropertiesContent = File.ReadAllText(applicationPropertiesPath);
+            if (!string.IsNullOrWhiteSpace(applicationPropertiesContent))
             {
                 return true;
             }

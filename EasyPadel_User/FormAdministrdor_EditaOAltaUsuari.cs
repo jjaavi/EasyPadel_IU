@@ -10,7 +10,7 @@ namespace EasyPadel_User
     {
         private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
-        private static readonly char[] PasswordSpecialChars = "!@#$%^&*()-_=+[]{}".ToCharArray();
+        private static readonly char[] PasswordSpecialChars = "!@#%*_-".ToCharArray();
 
         private readonly bool modificar;
         private readonly int? usuariId;
@@ -122,7 +122,9 @@ namespace EasyPadel_User
                         if (restarurPassword)
                         {
                             MessageBox.Show(
-                                $"Usuari amb email {email} modificat correctament. El password temporal nou es {passwordTemporal}.",
+                                $"Usuari amb email {email} modificat correctament." + Environment.NewLine +
+                                "El password temporal nou es:" + Environment.NewLine +
+                                $"{passwordTemporal}",
                                 "Modificació d'usuari.",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
@@ -165,7 +167,9 @@ namespace EasyPadel_User
                     if (response.IsSuccessStatusCode)
                     {
                         MessageBox.Show(
-                            $"Usuari amb email {email} creat correctament. El password temporal es {passwordTemporal}.",
+                            $"Usuari amb email {email} creat correctament." + Environment.NewLine +
+                            "El password temporal es:" + Environment.NewLine +
+                            $"{passwordTemporal}",
                             "Informació",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);

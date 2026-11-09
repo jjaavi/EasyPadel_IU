@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrador));
             panelLogo = new Panel();
             panelReserves = new Panel();
             comboBoxFiltreTorn = new ComboBox();
@@ -682,6 +683,7 @@
             Controls.Add(panelReserves);
             Controls.Add(menuStripAdmin);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStripAdmin;
             Margin = new Padding(2);
             MaximizeBox = false;

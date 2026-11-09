@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicioBD));
+            TextBox txtHost;
             label1 = new Label();
             btnInstalarBD = new Button();
             label2 = new Label();
@@ -147,6 +148,7 @@
             Controls.Add(btnInstalarBD);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormInicioBD";
             Text = "EasyPadel - Primera execucció";
             ResumeLayout(false);
