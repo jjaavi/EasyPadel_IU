@@ -8,7 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Configurations>Debug;Release;Release-Server;EasyPadel-Soci</Configurations>
     <ApplicationIcon>Resources\padel.ico</ApplicationIcon>
-    <ApplicationManifest>app-setup-soci.manifest</ApplicationManifest>
+    <!--<ApplicationManifest>app.manifest</ApplicationManifest>-->
+	<ApplicationManifest>app-setup-soci.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

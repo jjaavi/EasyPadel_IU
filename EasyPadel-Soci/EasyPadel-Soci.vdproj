@@ -80,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -130,6 +138,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_66935F7591DC46E2B97BF78AFF8676C0"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
@@ -333,7 +351,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EasyPadel-Soci"
         "ProductCode" = "8:{8B1E0361-6B2F-42D3-B034-B1B46891ECFC}"
-        "PackageCode" = "8:{09C69B4D-0D5B-42DC-9B44-737B3787FE21}"
+        "PackageCode" = "8:{CAF6BFB7-2150-4641-B5A7-C50937FE8B8E}"
         "UpgradeCode" = "8:{F415204E-3839-430D-98FC-6F7EDF1599A7}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -350,7 +368,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_963A0A6D218B4828808D44C2FF3185D4"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -906,6 +924,9 @@
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
+                "ExcludeFilter" = "8:application-setup-soci.properties"
+                "ExcludeFilter" = "8:*dades_prova*"
+                "ExcludeFilter" = "8:*bd*"
                 }
             }
         }
