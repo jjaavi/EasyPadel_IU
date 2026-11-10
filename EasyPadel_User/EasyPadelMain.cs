@@ -7,7 +7,7 @@ namespace EasyPadel
 {
     internal static class EasyPadelMain
     {
-        private const string configFilePath = @"..\..\..\resources\variables.xml";
+        private const string variablesFilePath = @"Resources\variables.xml";
 
         private static readonly HttpClient HttpClient = new()
         {
@@ -25,15 +25,29 @@ namespace EasyPadel
         {
             ApplicationConfiguration.Initialize();
             Application.ApplicationExit += (_, _) => StopServerProcess();
+            AppDomain.CurrentDomain.ProcessExit += (_, _) => StopServerProcess();
+            AppDomain.CurrentDomain.UnhandledException += (_, _) => StopServerProcess();
 
-            if (!TryStartBackendAndWaitUntilReady())
+            try
             {
-                MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
-                StopServerProcess();
-                return;
-            }
+                if (!SetupServer())
+                {
+                    return;
+                }
 
-            Application.Run(new FormLogin());
+                if (!TryStartBackendAndWaitUntilReady())
+                {
+                    MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
+                    StopServerProcess();
+                    return;
+                }
+
+                Application.Run(new FormLogin());
+            }
+            finally
+            {
+                StopServerProcess();
+            }
         }
 
         private static bool TryStartBackendAndWaitUntilReady()
@@ -42,40 +56,26 @@ namespace EasyPadel
             loadingDialog.Show();
             loadingDialog.Refresh();
 
-            try
-            {
-                bool started = Task.Run(StartServerBackendProcess).GetAwaiter().GetResult();
-                if (!started)
-                {
-                    return false;
-                }
-
-                Stopwatch timeout = Stopwatch.StartNew();
-                while (timeout.Elapsed < TimeSpan.FromSeconds(30))
-                {
-                    Application.DoEvents();
-
-                    if (IsServerReady())
-                    {
-                        return true;
-                    }
-
-                    Thread.Sleep(500);
-                }
-
-                return false;
-            }
-            catch
+            bool started = Task.Run(StartServerBackendProcess).GetAwaiter().GetResult();
+            if (!started)
             {
                 return false;
             }
-            finally
+
+            Stopwatch timeout = Stopwatch.StartNew();
+            while (timeout.Elapsed < TimeSpan.FromSeconds(30))
             {
-                if (!loadingDialog.IsDisposed)
+                Application.DoEvents();
+
+                if (IsServerReady())
                 {
-                    loadingDialog.Close();
+                    return true;
                 }
+
+                Thread.Sleep(500);
             }
+
+            return false;
         }
 
         private static bool StartServerBackendProcess()
@@ -95,7 +95,7 @@ namespace EasyPadel
             var startInfo = new ProcessStartInfo
             {
                 FileName = "java",
-                Arguments = $"-jar \"{jarPath}\"",
+                Arguments = $"-jar \"{jarPath}\" --spring.config.additional-location=file:application.properties",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 WorkingDirectory = Path.GetDirectoryName(jarPath) ?? string.Empty
@@ -113,24 +113,13 @@ namespace EasyPadel
 
         private static bool IsServerReady()
         {
-            try
-            {
-                using HttpResponseMessage response = HttpClient.GetAsync("http://localhost:8080/status").GetAwaiter().GetResult();
-                return response.IsSuccessStatusCode;
-            }
-            catch
-            {
-                return false;
-            }
+            using HttpResponseMessage response = HttpClient.GetAsync($"http://localhost:8080/status").GetAwaiter().GetResult();
+            return response.IsSuccessStatusCode;
         }
 
         private static string? GetServerPathFromXml()
         {
-            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, configFilePath));
-            if (!File.Exists(configPath))
-            {
-                return null;
-            }
+            string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, variablesFilePath));
 
             using XmlReader reader = XmlReader.Create(configPath, new XmlReaderSettings { IgnoreComments = true, IgnoreWhitespace = true });
             while (reader.Read())
@@ -143,6 +132,26 @@ namespace EasyPadel
             }
 
             return null;
+        }
+
+        private static bool SetupServer()
+        {
+            string applicationPropertiesPath = Path.Combine(AppContext.BaseDirectory, "server", "application.properties");
+            string applicationPropertiesContent = File.ReadAllText(applicationPropertiesPath);
+            if (!string.IsNullOrWhiteSpace(applicationPropertiesContent))
+            {
+                return true;
+            }
+
+            using var formInicioBd = new FormSetupServer();
+            DialogResult result = formInicioBd.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                MessageBox.Show("Base de dades llesta. Torna a obrir la aplicació.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return false;
         }
 
         private static void StopServerProcess()

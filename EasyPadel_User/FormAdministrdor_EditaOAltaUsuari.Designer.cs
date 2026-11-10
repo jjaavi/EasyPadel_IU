@@ -28,6 +28,7 @@ namespace EasyPadel_User
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrdor_EditaOAltaUsuari));
             lblNom = new Label();
             txtNom = new TextBox();
             lblCognom = new Label();
@@ -180,6 +181,7 @@ namespace EasyPadel_User
             Controls.Add(lblCognom);
             Controls.Add(txtNom);
             Controls.Add(lblNom);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormAdministrdor_EditaOAltaUsuari";
             Text = "Usuari";
             ResumeLayout(false);

@@ -6,6 +6,7 @@ namespace EasyPadel_User
     {
         private const string PlaceholderUsuari = "Correu electrònic";
         private const string PlaceholderPassword = "Contrasenya";
+        private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
 
         public FormLogin()
@@ -119,7 +120,7 @@ namespace EasyPadel_User
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync("http://localhost:8080/api/usuaris/login", loginRequest);
+                using HttpResponseMessage response = await HttpClient.PostAsJsonAsync($"{BaseApiUrl}/api/usuaris/login", loginRequest);
                 if (!response.IsSuccessStatusCode)
                 {
                     return null;

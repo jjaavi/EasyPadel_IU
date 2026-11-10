@@ -10,6 +10,7 @@ namespace EasyPadel_User
 {
     public partial class FormAdministrador_EditarReserva : Form
     {
+        private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
         private readonly int reservaId;
         private readonly int usuariIdReserva;
@@ -44,7 +45,7 @@ namespace EasyPadel_User
         {
             try
             {
-                List<PistaDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaDto>>("http://localhost:8080/api/pistes")
+                List<PistaDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaDto>>($"{BaseApiUrl}/api/pistes")
                     ?? [];
 
                 listBoxPistas.DataSource = pistes;
@@ -126,7 +127,7 @@ namespace EasyPadel_User
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.PutAsJsonAsync($"http://localhost:8080/api/reserves/{reservaId}", request);
+                using HttpResponseMessage response = await HttpClient.PutAsJsonAsync($"{BaseApiUrl}/api/reserves/{reservaId}", request);
                 if (response.IsSuccessStatusCode)
                 {
                     DialogResult = DialogResult.OK;

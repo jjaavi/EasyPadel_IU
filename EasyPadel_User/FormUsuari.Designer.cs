@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnCancelarReserva = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuari));
             panelLogo = new Panel();
             panelReserves = new Panel();
             dataGridViewReservesSoci = new DataGridView();
@@ -66,6 +66,19 @@
             panelConfiguracioSoci.SuspendLayout();
             menuStripUsuari.SuspendLayout();
             SuspendLayout();
+            // 
+            // btnCancelarReserva
+            // 
+            btnCancelarReserva.BackColor = Color.White;
+            btnCancelarReserva.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancelarReserva.Location = new Point(829, 427);
+            btnCancelarReserva.Margin = new Padding(2);
+            btnCancelarReserva.Name = "btnCancelarReserva";
+            btnCancelarReserva.Size = new Size(188, 34);
+            btnCancelarReserva.TabIndex = 10;
+            btnCancelarReserva.Text = "Cancelar reserva";
+            btnCancelarReserva.UseVisualStyleBackColor = false;
+            btnCancelarReserva.Click += btnCancelarReserva_Click;
             // 
             // panelLogo
             // 
@@ -125,19 +138,6 @@
             btnReservesActuals.Text = "Reserves actuals";
             btnReservesActuals.UseVisualStyleBackColor = true;
             btnReservesActuals.Click += btnReservesActuals_Click;
-            // 
-            // btnCancelarReserva
-            // 
-            btnCancelarReserva.BackColor = Color.White;
-            btnCancelarReserva.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancelarReserva.Location = new Point(829, 427);
-            btnCancelarReserva.Margin = new Padding(2);
-            btnCancelarReserva.Name = "btnCancelarReserva";
-            btnCancelarReserva.Size = new Size(188, 34);
-            btnCancelarReserva.TabIndex = 10;
-            btnCancelarReserva.Text = "Cancelar reserva";
-            btnCancelarReserva.UseVisualStyleBackColor = false;
-            btnCancelarReserva.Click += btnCancelarReserva_Click;
             // 
             // panelNovaReserva
             // 
@@ -383,6 +383,7 @@
             Controls.Add(panelLogo);
             Controls.Add(menuStripUsuari);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStripUsuari;
             Margin = new Padding(2);
             MaximizeBox = false;

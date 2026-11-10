@@ -1,4 +1,4 @@
-Ôªøusing System;
+using System;
 using System.Drawing;
 using System.Globalization;
 using System.Net.Http.Json;
@@ -10,6 +10,7 @@ namespace EasyPadel_User
 {
     public partial class FormAdministrador : Form
     {
+        private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
 
         public FormAdministrador()
@@ -138,7 +139,7 @@ namespace EasyPadel_User
         {
             try
             {
-                List<PistaMantenimentDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaMantenimentDto>>("http://localhost:8080/api/pistes")
+                List<PistaMantenimentDto> pistes = await HttpClient.GetFromJsonAsync<List<PistaMantenimentDto>>($"{BaseApiUrl}/api/pistes")
                     ?? [];
 
                 List<PistaListItem> pistesListBox = pistes
@@ -209,7 +210,7 @@ namespace EasyPadel_User
             string? nomPista = NullIfWhiteSpace(txtNomPista.Text);
             if (nomPista is null)
             {
-                MessageBox.Show("El nom de la pista √©s obligatori.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nom de la pista Ès obligatori.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -222,7 +223,7 @@ namespace EasyPadel_User
 
             DialogResult confirmacio = MessageBox.Show(
                 missatgeConfirmacio,
-                "Confirmaci√≥",
+                "ConfirmaciÛ",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -237,7 +238,7 @@ namespace EasyPadel_User
                 try
                 {
                     reservesPerPista = await HttpClient.GetFromJsonAsync<List<ReservaPistaResponseDto>>(
-                        $"http://localhost:8080/api/reserves/pista/{pistaSeleccionada.Id}") ?? [];
+                        $"{BaseApiUrl}/api/reserves/pista/{pistaSeleccionada.Id}") ?? [];
                 }
                 catch
                 {
@@ -252,8 +253,8 @@ namespace EasyPadel_User
                         reservesPerPista.Select(r => $"{r.Id} - {r.Data}"));
 
                     DialogResult confirmacioEliminacio = MessageBox.Show(
-                        $"Aquesta pista esta asociada a les seguents reserves:\n{llistaReserves}\n\nS'han d'eliminar les seg√ºents reserver per a poder posar la pista en manteniment, segur que vols fer-ho?",
-                        "Confirmaci√≥",
+                        $"Aquesta pista esta asociada a les seguents reserves:\n{llistaReserves}\n\nS'han d'eliminar les seg¸ents reserver per a poder posar la pista en manteniment, segur que vols fer-ho?",
+                        "ConfirmaciÛ",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning);
 
@@ -266,7 +267,7 @@ namespace EasyPadel_User
                     {
                         try
                         {
-                            using HttpResponseMessage responseDelete = await HttpClient.DeleteAsync($"http://localhost:8080/api/reserves/{reserva.Id}");
+                            using HttpResponseMessage responseDelete = await HttpClient.DeleteAsync($"{BaseApiUrl}/api/reserves/{reserva.Id}");
                             if (!responseDelete.IsSuccessStatusCode)
                             {
                                 MessageBox.Show($"No s'ha pogut eliminar la reserva {reserva.Id} correctament.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -287,12 +288,12 @@ namespace EasyPadel_User
             try
             {
                 using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
-                    $"http://localhost:8080/api/pistes/{pistaSeleccionada.Id}",
+                    $"{BaseApiUrl}/api/pistes/{pistaSeleccionada.Id}",
                     request);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Pista modificada correctament.", "Informaci√≥", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pista modificada correctament.", "InformaciÛ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await CarregarPistesMantenimentAsync(pistaSeleccionada.Id);
                 }
                 else
@@ -311,7 +312,7 @@ namespace EasyPadel_User
             string? nomPista = NullIfWhiteSpace(txtNomPistaNova.Text);
             if (nomPista is null)
             {
-                MessageBox.Show("El nom de la pista √©s obligatori.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nom de la pista Ès obligatori.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -320,12 +321,12 @@ namespace EasyPadel_User
             try
             {
                 using HttpResponseMessage response = await HttpClient.PostAsJsonAsync(
-                    "http://localhost:8080/api/pistes",
+                    $"{BaseApiUrl}/api/pistes",
                     request);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Pista creada correctament.", "Informaci√≥", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Pista creada correctament.", "InformaciÛ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomPistaNova.Text = string.Empty;
                     await CarregarPistesMantenimentAsync();
                 }
@@ -343,7 +344,7 @@ namespace EasyPadel_User
         private async Task CarregarProperes20ReservesAsync()
         {
             string dateToday = DateTime.Today.ToString("yyyy-MM-dd");
-            string endpoint = $"http://localhost:8080/api/reserves/properes?data={Uri.EscapeDataString(dateToday)}";
+            string endpoint = $"{BaseApiUrl}/api/reserves/properes?data={Uri.EscapeDataString(dateToday)}";
 
             try
             {
@@ -363,13 +364,13 @@ namespace EasyPadel_User
                 || !validarInt(txtFiltreIDUsuari.Text, out int? usuariId)
                 || !validarInt(txtFiltrePista.Text, out int? pistaId))
             {
-                MessageBox.Show("Els camps Id reserva, Id usuari i Pista han de ser num√®rics.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Els camps Id reserva, Id usuari i Pista han de ser numËrics.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!validarData(txtFiltreData.Text, out string? data))
             {
-                MessageBox.Show("El format de data no √©s v√†lid. Ha de ser yyyy-MM-dd.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El format de data no Ès v‡lid. Ha de ser yyyy-MM-dd.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -408,13 +409,13 @@ namespace EasyPadel_User
         {
             if (!validarInt(txtFiltreUsuariUsuari.Text, out int? usuariId))
             {
-                MessageBox.Show("El camp Id d'usuari ha de ser num√®ric.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El camp Id d'usuari ha de ser numËric.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!validarData(txtFiltreTelefon.Text, out string? dataAlta))
             {
-                MessageBox.Show("El format de data no √©s v√†lid. Ha de ser yyyy-MM-dd.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El format de data no Ès v‡lid. Ha de ser yyyy-MM-dd.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -502,7 +503,7 @@ namespace EasyPadel_User
             return false;
         }
 
-        private static string GenerateEndpointCercaAdmin(int? reservaId, int? usuariId, int? pistaId, string? data, int? torn)
+        private string GenerateEndpointCercaAdmin(int? reservaId, int? usuariId, int? pistaId, string? data, int? torn)
         {
             List<string> stringList = [];
 
@@ -531,10 +532,10 @@ namespace EasyPadel_User
                 stringList.Add($"torn={torn.Value}");
             }
 
-            return $"http://localhost:8080/api/reserves/cercaAdmin?{string.Join("&", stringList)}";
+            return $"{BaseApiUrl}/api/reserves/cercaAdmin?{string.Join("&", stringList)}";
         }
 
-        private static string GenerateEndpointCercaAdminUsuaris(int? usuariId, string? nom, string? cognom, string? email, string? rol, bool actiu, string? dataAlta)
+        private string GenerateEndpointCercaAdminUsuaris(int? usuariId, string? nom, string? cognom, string? email, string? rol, bool actiu, string? dataAlta)
         {
             List<string> stringList = [];
 
@@ -577,7 +578,7 @@ namespace EasyPadel_User
                 stringList.Add($"dataAlta={Uri.EscapeDataString(dataAlta)}");
             }
 
-            return $"http://localhost:8080/api/usuaris/cercaAdmin?{string.Join("&", stringList)}";
+            return $"{BaseApiUrl}/api/usuaris/cercaAdmin?{string.Join("&", stringList)}";
         }
 
         private void ActualitzarGridReserves(List<ReservaResponseDto> reserves)
@@ -709,7 +710,7 @@ namespace EasyPadel_User
 
             DialogResult okdialog = MessageBox.Show(
                 $"Segur que vols eliminar la reserva amb id {reservaId}?",
-                "Confirmaci√≥ d'eliminaci√≥",
+                "ConfirmaciÛ d'eliminaciÛ",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -720,7 +721,7 @@ namespace EasyPadel_User
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.DeleteAsync($"http://localhost:8080/api/reserves/{reservaId}");
+                using HttpResponseMessage response = await HttpClient.DeleteAsync($"{BaseApiUrl}/api/reserves/{reservaId}");
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Reserva eliminada correctament", "Reserva eliminada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -751,7 +752,7 @@ namespace EasyPadel_User
 
             DialogResult confirmacio = MessageBox.Show(
                 $"Vols donar de baixa l'usuari amb id {usuariId} ({nom} {cognom}) ? El seu estat es posar a NO ACTIU",
-                "Confirmaci√≥",
+                "ConfirmaciÛ",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -762,10 +763,10 @@ namespace EasyPadel_User
 
             try
             {
-                using HttpResponseMessage response = await HttpClient.PutAsync($"http://localhost:8080/api/usuaris/{usuariId}/baixa", null);
+                using HttpResponseMessage response = await HttpClient.PutAsync($"{BaseApiUrl}/api/usuaris/{usuariId}/baixa", null);
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show($"Usuari {usuariId} - {nom} {cognom}  donat de baixa correctament.", "Informaci√≥", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Usuari {usuariId} - {nom} {cognom}  donat de baixa correctament.", "InformaciÛ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await InicialitzarPanellUsuarisAsync();
                 }
                 else
@@ -919,3 +920,4 @@ namespace EasyPadel_User
             [property: JsonPropertyName("usuariCognom")] string? UsuariCognom);
     }
 }
+

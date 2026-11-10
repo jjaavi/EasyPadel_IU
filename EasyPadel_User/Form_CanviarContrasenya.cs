@@ -9,6 +9,7 @@ namespace EasyPadel_User
 {
     public partial class Form_CanviarContrasenya : Form
     {
+        private const string BaseApiUrl = "http://localhost:8080";
         private static readonly HttpClient HttpClient = new();
 
         public Form_CanviarContrasenya()
@@ -62,7 +63,7 @@ namespace EasyPadel_User
                     nouPassword);
 
                 using HttpResponseMessage response = await HttpClient.PutAsJsonAsync(
-                    $"http://localhost:8080/api/usuaris/{SessionContext.UsuariId}/password",
+                    $"{BaseApiUrl}/api/usuaris/{SessionContext.UsuariId}/password",
                     request);
 
                 if (response.IsSuccessStatusCode)
