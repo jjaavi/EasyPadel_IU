@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace EasyPadel_User
 {
-    public partial class FormInicioBD : Form
+    public partial class FormSetupServer : Form
     {
-        public FormInicioBD()
+        public FormSetupServer()
         {
             InitializeComponent();
             btnInstalarBD.Click += btnInstalarBD_Click;
@@ -70,7 +70,10 @@ namespace EasyPadel_User
                     var script = new MySqlScript(connection, sqlScript);
                     script.Execute();
 
-                    MessageBox.Show("Base de dades creades correctament.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Base de dades creades correctament." + Environment.NewLine
+                        + "S'ha creat també un usuari admin per a poder iniciar sesió:" + Environment.NewLine +
+                        "Correu: admin@gmail.com" + Environment.NewLine +
+                        "Password: 12345678.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     DialogResult messageBoxDadesProva = MessageBox.Show(
                         "Vols inserir dades de prova? Es recomana per una primera execució.",

@@ -62,3 +62,7 @@ CREATE TABLE reserves (
 
     INDEX idx_reserves_usuari_data (usuari_id, data)
 );
+
+-- Usuari admin per a poder fer alguna cosa per primer cop
+INSERT INTO usuaris (nom, cognom, email, password, telefon, rol) VALUES
+('Admin',  'Admin',  'admin@gmail.com',  '$2a$10$43dKSmm51yqfwqk9OqQNq.Wrswvg7uO36yWVhY8gVKr5ZYGyIlt6C', '000000000', 'ADMIN');

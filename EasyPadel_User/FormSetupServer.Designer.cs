@@ -1,6 +1,6 @@
 ﻿namespace EasyPadel_User
 {
-    partial class FormInicioBD
+    partial class FormSetupServer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicioBD));
-            TextBox txtHost;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetupServer));
             label1 = new Label();
             btnInstalarBD = new Button();
             label2 = new Label();

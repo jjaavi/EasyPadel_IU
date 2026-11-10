@@ -1,6 +1,11 @@
 <Solution>
-  <Project Path="EasyPadel_User/EasyPadel_User.csproj" />
-  <Project Path="Setup1/Setup1.vdproj" Type="Installer">
+  <Project Path="EasyPadel-Server/EasyPadel-Server.vdproj" Type="Installer">
     <Build />
+  </Project>
+  <Project Path="EasyPadel-Soci/EasyPadel-Soci.vdproj" Type="Installer">
+    <Build />
+  </Project>
+  <Project Path="EasyPadel_User/EasyPadel_User.csproj">
+    <Build Solution="Release|*" Project="false" />
   </Project>
 </Solution>

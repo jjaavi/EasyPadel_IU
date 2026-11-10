@@ -6,6 +6,9 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Configurations>Debug;Release;Release-Server;EasyPadel-Soci</Configurations>
+    <ApplicationIcon>Resources\padel.ico</ApplicationIcon>
+    <ApplicationManifest>app-setup-soci.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,6 +43,10 @@
     <Content Include="bd\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="app-setup-soci.manifest" />
   </ItemGroup>
 
 </Project>

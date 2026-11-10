@@ -25,20 +25,29 @@ namespace EasyPadel
         {
             ApplicationConfiguration.Initialize();
             Application.ApplicationExit += (_, _) => StopServerProcess();
+            AppDomain.CurrentDomain.ProcessExit += (_, _) => StopServerProcess();
+            AppDomain.CurrentDomain.UnhandledException += (_, _) => StopServerProcess();
 
-            if (!PrimerIniciCreacioDB())
+            try
             {
-                return;
+                if (!SetupServer())
+                {
+                    return;
+                }
+
+                if (!TryStartBackendAndWaitUntilReady())
+                {
+                    MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
+                    StopServerProcess();
+                    return;
+                }
+
+                Application.Run(new FormLogin());
             }
-
-            if (!TryStartBackendAndWaitUntilReady())
+            finally
             {
-                MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
                 StopServerProcess();
-                return;
             }
-
-            Application.Run(new FormLogin());
         }
 
         private static bool TryStartBackendAndWaitUntilReady()
@@ -125,7 +134,7 @@ namespace EasyPadel
             return null;
         }
 
-        private static bool PrimerIniciCreacioDB()
+        private static bool SetupServer()
         {
             string applicationPropertiesPath = Path.Combine(AppContext.BaseDirectory, "server", "application.properties");
             string applicationPropertiesContent = File.ReadAllText(applicationPropertiesPath);
@@ -134,9 +143,15 @@ namespace EasyPadel
                 return true;
             }
 
-            using var formInicioBd = new FormInicioBD();
+            using var formInicioBd = new FormSetupServer();
             DialogResult result = formInicioBd.ShowDialog();
-            return result == DialogResult.OK;
+
+            if (result == DialogResult.OK)
+            {
+                MessageBox.Show("Base de dades llesta. Torna a obrir la aplicació.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return false;
         }
 
         private static void StopServerProcess()
