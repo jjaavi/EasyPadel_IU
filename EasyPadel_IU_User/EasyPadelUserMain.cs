@@ -1,3 +1,4 @@
+using EasyPadel_IU_User;
 using EasyPadel_User;
 using System.Diagnostics;
 using System.Net.Http;
@@ -29,12 +30,13 @@ namespace EasyPadel
 
         private static bool TryStartBackendAndWaitUntilReady()
         {
-            using var loadingDialog = new LoadingDialogForm("Conectant a la base de dades...");
+            using var loadingDialog = new FormLoading{};
+
             loadingDialog.Show();
             loadingDialog.Refresh();
 
             Stopwatch timeout = Stopwatch.StartNew();
-            while (timeout.Elapsed < TimeSpan.FromSeconds(30))
+            while (timeout.Elapsed < TimeSpan.FromSeconds(10))
             {
                 Application.DoEvents();
 
@@ -46,6 +48,7 @@ namespace EasyPadel
                 Thread.Sleep(500);
             }
 
+            MessageBox.Show("No s'ha pogut conectar a la base de dades. Intenta-ho més tard");
             return false;
         }
 
@@ -62,31 +65,5 @@ namespace EasyPadel
             }
         }
 
-        private sealed class LoadingDialogForm : Form
-        {
-            public LoadingDialogForm(string message)
-            {
-                FormBorderStyle = FormBorderStyle.FixedDialog;
-                ControlBox = false;
-                StartPosition = FormStartPosition.CenterScreen;
-                ShowInTaskbar = false;
-                TopMost = true;
-                MinimizeBox = false;
-                MaximizeBox = false;
-                ClientSize = new Size(360, 90);
-                BackColor = Color.FromArgb(213, 221, 40);
-
-                var label = new Label
-                {
-                    Dock = DockStyle.Fill,
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Text = message,
-                    ForeColor = Color.Black,
-                    BackColor = Color.FromArgb(213, 221, 40)
-                };
-
-                Controls.Add(label);
-            }
-        }
     }
 }

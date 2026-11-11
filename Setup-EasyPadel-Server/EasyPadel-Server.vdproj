@@ -166,7 +166,7 @@
         {
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3652ABE12FCA47C5A8A4B2AAF64FF61B"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\server\\easypadel-backend-2.0.0.jar"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\server\\easypadel-backend-2.0.0.jar"
             "TargetName" = "8:easypadel-backend-2.0.0.jar"
             "Tag" = "8:"
             "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
@@ -186,7 +186,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73BB4243939F400A92FC35A8DA920EE3"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\bd\\dades_prova.sql"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\bd\\dades_prova.sql"
             "TargetName" = "8:dades_prova.sql"
             "Tag" = "8:"
             "Folder" = "8:_86977345D4304CCA8549C8F3C35097A9"
@@ -206,7 +206,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_893EFCDF1A51491E9CBCD26A16ACBFA0"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\EasyPadel_logo1.png"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\EasyPadel_logo1.png"
             "TargetName" = "8:EasyPadel_logo1.png"
             "Tag" = "8:"
             "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
@@ -226,7 +226,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D6AB772B10E4460A2158DF2CED5E44E"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\EasyPadel_logo.png"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\EasyPadel_logo.png"
             "TargetName" = "8:EasyPadel_logo.png"
             "Tag" = "8:"
             "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
@@ -246,7 +246,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90603CFD95164FE8BDCD3D171552EF69"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\variables.xml"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\variables.xml"
             "TargetName" = "8:variables.xml"
             "Tag" = "8:"
             "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
@@ -266,7 +266,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0BCB21D4068407B86AAF301048DA186"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\bd\\bd.sql"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\bd\\bd.sql"
             "TargetName" = "8:bd.sql"
             "Tag" = "8:"
             "Folder" = "8:_86977345D4304CCA8549C8F3C35097A9"
@@ -286,7 +286,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CEBA5431A6494717940B16E812E99C52"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\server\\application.properties"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\server\\application.properties"
             "TargetName" = "8:application.properties"
             "Tag" = "8:"
             "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
@@ -306,7 +306,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6FA59E6B39941D0A4778C58C943665D"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\padel.ico"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\padel.ico"
             "TargetName" = "8:padel.ico"
             "Tag" = "8:"
             "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
@@ -963,7 +963,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0D20AD546CA94842BDD9FD616BCA6A79"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU\\obj\\Release\\net10.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\obj\\Release\\net10.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
@@ -993,4 +993,5 @@
         }
     }
 }
+
 

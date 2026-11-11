@@ -94,6 +94,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EasyPadel";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
