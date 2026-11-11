@@ -71,7 +71,7 @@
             // 
             // panel2
             // 
-            panel2.BackgroundImage = Properties.Resources.EasyPadel_logo1;
+            panel2.BackgroundImage = EasyPadel_IU_User.Properties.Resources.EasyPadel_logo1;
             panel2.BackgroundImageLayout = ImageLayout.Zoom;
             panel2.Location = new Point(51, 12);
             panel2.Name = "panel2";

@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:EasyPadel-Soci"
+"ProjectName" = "8:Setup-EasyPadel-Server"
 "LanguageId" = "3:3082"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:3082"
@@ -15,43 +15,55 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_6184F0F95CEF48ED96AB93ACC5BC15B8"
+        "MsmKey" = "8:_0D20AD546CA94842BDD9FD616BCA6A79"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6CE18DE6FD04429CB57C2BB4E905DC1B"
+        "MsmKey" = "8:_3652ABE12FCA47C5A8A4B2AAF64FF61B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_831802FC02E84BBCA76EE6EE8BF532C8"
+        "MsmKey" = "8:_73BB4243939F400A92FC35A8DA920EE3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+        "MsmKey" = "8:_893EFCDF1A51491E9CBCD26A16ACBFA0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C274974054AF412B978DE9E34F6D0879"
+        "MsmKey" = "8:_8D6AB772B10E4460A2158DF2CED5E44E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C55CCBE6CD82460B861201C93B3BA594"
+        "MsmKey" = "8:_90603CFD95164FE8BDCD3D171552EF69"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E8AFFFF505BF43A68342E411A27477F3"
+        "MsmKey" = "8:_B0BCB21D4068407B86AAF301048DA186"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CEBA5431A6494717940B16E812E99C52"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E6FA59E6B39941D0A4778C58C943665D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,7 +75,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\EasyPadel-Soci.msi"
+        "OutputFilename" = "8:Debug\\EasyPadel-Server.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -95,7 +107,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\EasyPadel-Soci.msi"
+        "OutputFilename" = "8:Release\\EasyPadel-Server.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -110,7 +122,7 @@
             "Enabled" = "11:FALSE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:C:\\Program Files (x86)\\EasyPadel\\EasyPadel-Soci"
+            "Url" = "8:C:\\Program Files (x86)\\EasyPadel\\EasyPadel-Server"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -138,7 +150,7 @@
         {
             "LaunchCondition"
             {
-                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_66935F7591DC46E2B97BF78AFF8676C0"
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_2CF50324E6084288B1CFCB648D2D15CF"
                 {
                 "Name" = "8:.NET Core"
                 "Message" = "8:[VSDNETCOREMSG]"
@@ -152,52 +164,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6184F0F95CEF48ED96AB93ACC5BC15B8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3652ABE12FCA47C5A8A4B2AAF64FF61B"
             {
-            "SourcePath" = "8:..\\EasyPadel_User\\Resources\\variables.xml"
-            "TargetName" = "8:variables.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6CE18DE6FD04429CB57C2BB4E905DC1B"
-            {
-            "SourcePath" = "8:..\\EasyPadel_User\\Resources\\EasyPadel_logo.png"
-            "TargetName" = "8:EasyPadel_logo.png"
-            "Tag" = "8:"
-            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_831802FC02E84BBCA76EE6EE8BF532C8"
-            {
-            "SourcePath" = "8:..\\EasyPadel_User\\server\\easypadel-backend-2.0.0.jar"
+            "SourcePath" = "8:..\\EasyPadel_IU\\server\\easypadel-backend-2.0.0.jar"
             "TargetName" = "8:easypadel-backend-2.0.0.jar"
             "Tag" = "8:"
-            "Folder" = "8:_5E5D3C0A164D4F4B8C53074BAADE6E94"
+            "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -212,12 +184,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_963A0A6D218B4828808D44C2FF3185D4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73BB4243939F400A92FC35A8DA920EE3"
             {
-            "SourcePath" = "8:..\\EasyPadel_User\\Resources\\padel.ico"
-            "TargetName" = "8:padel.ico"
+            "SourcePath" = "8:..\\EasyPadel_IU\\bd\\dades_prova.sql"
+            "TargetName" = "8:dades_prova.sql"
             "Tag" = "8:"
-            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
+            "Folder" = "8:_86977345D4304CCA8549C8F3C35097A9"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -232,12 +204,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C55CCBE6CD82460B861201C93B3BA594"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_893EFCDF1A51491E9CBCD26A16ACBFA0"
             {
-            "SourcePath" = "8:..\\EasyPadel_User\\Resources\\EasyPadel_logo1.png"
+            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\EasyPadel_logo1.png"
             "TargetName" = "8:EasyPadel_logo1.png"
             "Tag" = "8:"
-            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -252,12 +224,92 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8AFFFF505BF43A68342E411A27477F3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D6AB772B10E4460A2158DF2CED5E44E"
             {
-            "SourcePath" = "8:..\\EasyPadel_User\\server\\application-setup-soci.properties"
+            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\EasyPadel_logo.png"
+            "TargetName" = "8:EasyPadel_logo.png"
+            "Tag" = "8:"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90603CFD95164FE8BDCD3D171552EF69"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\variables.xml"
+            "TargetName" = "8:variables.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0BCB21D4068407B86AAF301048DA186"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU\\bd\\bd.sql"
+            "TargetName" = "8:bd.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_86977345D4304CCA8549C8F3C35097A9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CEBA5431A6494717940B16E812E99C52"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU\\server\\application.properties"
             "TargetName" = "8:application.properties"
             "Tag" = "8:"
-            "Folder" = "8:_5E5D3C0A164D4F4B8C53074BAADE6E94"
+            "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6FA59E6B39941D0A4778C58C943665D"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU\\Resources\\padel.ico"
+            "TargetName" = "8:padel.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -278,18 +330,18 @@
         }
         "Folder"
         {
-            "{1525181F-901A-416C-8A58-119130FE478E}:_DFD7A7B267F8412A866F06813B539F46"
+            "{1525181F-901A-416C-8A58-119130FE478E}:_6F99646B7DE44B1BBAC75CE3F7DBA7D1"
             {
-            "Name" = "8:#1916"
+            "Name" = "8:#1919"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
-            "Property" = "8:DesktopFolder"
+            "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
                 }
             }
-            "{3C67513D-01DD-4637-8A68-80971EB9504F}:_FC360857F8A64840AD1CE34275D93E24"
+            "{3C67513D-01DD-4637-8A68-80971EB9504F}:_86DF1044FA70475FA4F5B26D0ECDA88B"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
@@ -299,37 +351,48 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5E5D3C0A164D4F4B8C53074BAADE6E94"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_86977345D4304CCA8549C8F3C35097A9"
+                    {
+                    "Name" = "8:bd"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_B08C31E1F4BF4F4388B7E68EA46D3853"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_9A863A58927E4DAD9D974F071E8CF3A1"
                     {
                     "Name" = "8:server"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_8E41C59D9A6E45B5B974800440E980DF"
+                    "Property" = "8:_545EAB630F584A99BDBFDE97260C29D7"
                         "Folders"
                         {
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F23EC43AD1B44E63849AD4ECBE5438FF"
                     {
                     "Name" = "8:Resources"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_116F6B6B94384903B8EF6CE9B07F32FB"
+                    "Property" = "8:_5B8A358D7F0C4B47B0CEEFC813D7C8A7"
                         "Folders"
                         {
                         }
                     }
                 }
             }
-            "{1525181F-901A-416C-8A58-119130FE478E}:_FFF0E69EA42E421A9942D341528124A0"
+            "{1525181F-901A-416C-8A58-119130FE478E}:_918A1B1A8F8247DFA9303C817706A3F5"
             {
-            "Name" = "8:#1919"
+            "Name" = "8:#1916"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
-            "Property" = "8:ProgramMenuFolder"
+            "Property" = "8:DesktopFolder"
                 "Folders"
                 {
                 }
@@ -349,10 +412,10 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:EasyPadel-Soci"
-        "ProductCode" = "8:{8B1E0361-6B2F-42D3-B034-B1B46891ECFC}"
-        "PackageCode" = "8:{CAF6BFB7-2150-4641-B5A7-C50937FE8B8E}"
-        "UpgradeCode" = "8:{F415204E-3839-430D-98FC-6F7EDF1599A7}"
+        "ProductName" = "8:EasyPadel-Server"
+        "ProductCode" = "8:{A0C78F3E-1E3A-48D0-BB47-1E81F483EA03}"
+        "PackageCode" = "8:{CEC25F48-7361-4D3F-A00C-CE08EA1E6F64}"
+        "UpgradeCode" = "8:{9A44963A-E511-4A05-82D1-87E825B3EB08}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -362,13 +425,13 @@
         "Manufacturer" = "8:EasyPadel"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:EasyPadel-Soci"
+        "Title" = "8:EasyPadel-Server"
         "Subject" = "8:"
         "ARPCONTACT" = "8:EasyPadel"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+        "ARPPRODUCTICON" = "8:_E6FA59E6B39941D0A4778C58C943665D"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -383,7 +446,7 @@
             {
                 "Keys"
                 {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_A4DD62488F6D4CD7B67F9BEC75C30A2D"
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_C77F33EC4FD54516867A58F04D0CBBD9"
                     {
                     "Name" = "8:Software"
                     "Condition" = "8:"
@@ -392,7 +455,7 @@
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
-                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_1B571F05D98A402684F0657BBFB58A12"
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_45AE9864D7EA443D862427EA3A719DFD"
                             {
                             "Name" = "8:[Manufacturer]"
                             "Condition" = "8:"
@@ -417,7 +480,7 @@
             {
                 "Keys"
                 {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0E7DB8E4E8C74FFD86851408D91154AD"
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_C60AE36B3D994A9EBBF57FCCB2790EEF"
                     {
                     "Name" = "8:Software"
                     "Condition" = "8:"
@@ -426,7 +489,7 @@
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
-                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_93CD09FB2D49439F86B6746977909360"
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_D34980EAF0384E4694E46480037ACC19"
                             {
                             "Name" = "8:[Manufacturer]"
                             "Condition" = "8:"
@@ -471,7 +534,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A22EAC3FF9E846BCB252F8F3C82FD7C6"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DD51A032B16C45C6A0F600FFD5201967"
             {
             "Name" = "8:EasyPadel"
             "Arguments" = "8:"
@@ -479,13 +542,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_C274974054AF412B978DE9E34F6D0879"
-            "Folder" = "8:_DFD7A7B267F8412A866F06813B539F46"
-            "WorkingFolder" = "8:_FC360857F8A64840AD1CE34275D93E24"
-            "Icon" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+            "Target" = "8:_0D20AD546CA94842BDD9FD616BCA6A79"
+            "Folder" = "8:_6F99646B7DE44B1BBAC75CE3F7DBA7D1"
+            "WorkingFolder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
+            "Icon" = "8:_E6FA59E6B39941D0A4778C58C943665D"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E4ED458688934882A5DC5FEDE4353444"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E8277E4F9C9642EA86CAAE95C8C4AABD"
             {
             "Name" = "8:EasyPadel"
             "Arguments" = "8:"
@@ -493,73 +556,29 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_C274974054AF412B978DE9E34F6D0879"
-            "Folder" = "8:_FFF0E69EA42E421A9942D341528124A0"
-            "WorkingFolder" = "8:_FC360857F8A64840AD1CE34275D93E24"
-            "Icon" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+            "Target" = "8:_0D20AD546CA94842BDD9FD616BCA6A79"
+            "Folder" = "8:_918A1B1A8F8247DFA9303C817706A3F5"
+            "WorkingFolder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
+            "Icon" = "8:_E6FA59E6B39941D0A4778C58C943665D"
             "Feature" = "8:"
             }
         }
         "UserInterface"
         {
-            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_21FF83F5ED9A42D09B4D34024116FC1F"
-            {
-            "Name" = "8:#1901"
-            "Sequence" = "3:1"
-            "Attributes" = "3:2"
-                "Dialogs"
-                {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_9D8A428C4E444C9DABFC77B2DBBBF60C"
-                    {
-                    "Sequence" = "3:100"
-                    "DisplayName" = "8:Progreso"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdProgressDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:1"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                            "ShowProgress"
-                            {
-                            "Name" = "8:ShowProgress"
-                            "DisplayName" = "8:#1009"
-                            "Description" = "8:#1109"
-                            "Type" = "3:5"
-                            "ContextData" = "8:1;True=1;False=0"
-                            "Attributes" = "3:0"
-                            "Setting" = "3:0"
-                            "Value" = "3:1"
-                            "DefaultValue" = "3:1"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
-                }
-            }
-            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_2416CED7BE2A481EBCC0145A0AFF7C14"
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_014EDBB508D34B9380A121F216D9F23C"
             {
             "Name" = "8:#1902"
-            "Sequence" = "3:1"
+            "Sequence" = "3:2"
             "Attributes" = "3:3"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_E882E4BEB47D45DCB92455F817FAD664"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_D1FE5BEE33E74B5F93DF95D654BDCFCC"
                     {
                     "Sequence" = "3:100"
                     "DisplayName" = "8:Finalizado"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdFinishedDlg.wid"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFinishedDlg.wid"
                         "Properties"
                         {
                             "BannerBitmap"
@@ -573,49 +592,30 @@
                             "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
-                            "UpdateText"
-                            {
-                            "Name" = "8:UpdateText"
-                            "DisplayName" = "8:#1058"
-                            "Description" = "8:#1158"
-                            "Type" = "3:15"
-                            "ContextData" = "8:"
-                            "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1258"
-                            "DefaultValue" = "8:#1258"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
                         }
                     }
                 }
             }
-            "{2479F3F5-0309-486D-8047-8187E2CE5BA0}:_5931B74FD9724B4DB0A305D19439F854"
+            "{2479F3F5-0309-486D-8047-8187E2CE5BA0}:_46811FBBDC524A1EA1859D4C222C3612"
             {
             "UseDynamicProperties" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "SourcePath" = "8:<VsdDialogDir>\\VsdUserInterface.wim"
             }
-            "{2479F3F5-0309-486D-8047-8187E2CE5BA0}:_6145B955D7694064AD1316AB4C486E0B"
-            {
-            "UseDynamicProperties" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "SourcePath" = "8:<VsdDialogDir>\\VsdBasicDialogs.wim"
-            }
-            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_648D032CE97249BF990141B3F476D200"
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_50129366E8F54BF9B6081237A35EB3D8"
             {
             "Name" = "8:#1900"
             "Sequence" = "3:2"
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_16254A0E23604C03A39FC972C6C0306D"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_1CE5B6ED89414814B0EC67E479CA3199"
                     {
-                    "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirmar instalación"
+                    "Sequence" = "3:200"
+                    "DisplayName" = "8:Carpeta de instalación"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
                         "Properties"
                         {
                             "BannerBitmap"
@@ -631,7 +631,7 @@
                             }
                         }
                     }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_998DD987C4B14B26976192D14FCEB4AD"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_AA76A193C2C24594A3C85120F7584F6D"
                     {
                     "Sequence" = "3:100"
                     "DisplayName" = "8:Pantalla de bienvenida"
@@ -679,13 +679,13 @@
                             }
                         }
                     }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_E69FBCC6C4F641EFB68A128B1F59572C"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_E7818290FE5E4F268D0BAB4EEC994F91"
                     {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Carpeta de instalación"
+                    "Sequence" = "3:300"
+                    "DisplayName" = "8:Confirmar instalación"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminConfirmDlg.wid"
                         "Properties"
                         {
                             "BannerBitmap"
@@ -703,71 +703,64 @@
                     }
                 }
             }
-            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_D7E53B02C6244CBEA3698FF714DCE8F8"
+            "{2479F3F5-0309-486D-8047-8187E2CE5BA0}:_8181E467D0CC46548B811F22CBF4C61A"
+            {
+            "UseDynamicProperties" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "SourcePath" = "8:<VsdDialogDir>\\VsdBasicDialogs.wim"
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_9EA53F4A80644E1B8D3771CC010F22E8"
+            {
+            "Name" = "8:#1902"
+            "Sequence" = "3:1"
+            "Attributes" = "3:3"
+                "Dialogs"
+                {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_8B971A606D234033B6084105D08B52B4"
+                    {
+                    "Sequence" = "3:100"
+                    "DisplayName" = "8:Finalizado"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdFinishedDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "UpdateText"
+                            {
+                            "Name" = "8:UpdateText"
+                            "DisplayName" = "8:#1058"
+                            "Description" = "8:#1158"
+                            "Type" = "3:15"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:EasyPadel instal·lat correctament."
+                            "DefaultValue" = "8:#1258"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                }
+            }
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_A00F93E377F44FAC97272E77074C8BB3"
             {
             "Name" = "8:#1900"
             "Sequence" = "3:1"
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_162B296F24DD4C9B8F1486BF9F1FC520"
-                    {
-                    "Sequence" = "3:300"
-                    "DisplayName" = "8:Confirmar instalación"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdConfirmDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:1"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_2F966676B994443883E437DEE14B493D"
-                    {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Carpeta de instalación"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:1"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                            "InstallAllUsersVisible"
-                            {
-                            "Name" = "8:InstallAllUsersVisible"
-                            "DisplayName" = "8:#1059"
-                            "Description" = "8:#1159"
-                            "Type" = "3:5"
-                            "ContextData" = "8:1;True=1;False=0"
-                            "Attributes" = "3:0"
-                            "Setting" = "3:0"
-                            "Value" = "3:1"
-                            "DefaultValue" = "3:1"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_DD7C3DE91D5E4C45BE064DAC5430D9F4"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_B5C3D93C315D43DEA191947CDDA8C6A5"
                     {
                     "Sequence" = "3:100"
                     "DisplayName" = "8:Pantalla de bienvenida"
@@ -809,22 +802,79 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:Aquest instalador instalarà la interfície de soci de EasyPadel al vostre equip."
+                            "Value" = "8:Aquest instalador instalarà EasyPadel al vostre equip. Aquesta versió inclou la creació de la base de dades per a poder tenir el servidor funcionant. Es requereix tenir instal·lat MySQL 8 (com a mínim) per a que EasyPadel funcioni."
                             "DefaultValue" = "8:#1203"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_C2B2653052784E11A05EB6D0DECB9768"
+                    {
+                    "Sequence" = "3:300"
+                    "DisplayName" = "8:Confirmar instalación"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdConfirmDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_DCDF329C8C944BA99AD50E23B57F56F1"
+                    {
+                    "Sequence" = "3:200"
+                    "DisplayName" = "8:Carpeta de instalación"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "InstallAllUsersVisible"
+                            {
+                            "Name" = "8:InstallAllUsersVisible"
+                            "DisplayName" = "8:#1059"
+                            "Description" = "8:#1159"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:1"
+                            "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
                     }
                 }
             }
-            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_F2D0BF086496414E99A08702D49B187D"
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_B9AAFB5562424DFDA66E42E2FB69B532"
             {
             "Name" = "8:#1901"
             "Sequence" = "3:2"
             "Attributes" = "3:2"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_02761F87DB7D4C0DB0D9EC50060F2B5D"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_F9DE6FDE4CCE419292B75E0EAE5DEEE7"
                     {
                     "Sequence" = "3:100"
                     "DisplayName" = "8:Progreso"
@@ -861,20 +911,20 @@
                     }
                 }
             }
-            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_FC8FCAB4CF4448CD8B4066056D560F83"
+            "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_C4C1D19E320B4C35BE3CE00962A93B02"
             {
-            "Name" = "8:#1902"
-            "Sequence" = "3:2"
-            "Attributes" = "3:3"
+            "Name" = "8:#1901"
+            "Sequence" = "3:1"
+            "Attributes" = "3:2"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_CDB27784C028435ABEB4FB61CFBBBB3B"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_F64032170FBB465BA10574CAF423D197"
                     {
                     "Sequence" = "3:100"
-                    "DisplayName" = "8:Finalizado"
+                    "DisplayName" = "8:Progreso"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFinishedDlg.wid"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdProgressDlg.wid"
                         "Properties"
                         {
                             "BannerBitmap"
@@ -888,6 +938,19 @@
                             "Setting" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
+                            "ShowProgress"
+                            {
+                            "Name" = "8:ShowProgress"
+                            "DisplayName" = "8:#1009"
+                            "Description" = "8:#1109"
+                            "Type" = "3:5"
+                            "ContextData" = "8:1;True=1;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:1"
+                            "DefaultValue" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
                         }
                     }
                 }
@@ -898,12 +961,12 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C274974054AF412B978DE9E34F6D0879"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0D20AD546CA94842BDD9FD616BCA6A79"
             {
-            "SourcePath" = "8:..\\EasyPadel_User\\obj\\Release\\net10.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\EasyPadel_IU\\obj\\Release\\net10.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_FC360857F8A64840AD1CE34275D93E24"
+            "Folder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -925,10 +988,9 @@
                 "ExcludeFilters"
                 {
                 "ExcludeFilter" = "8:application-setup-soci.properties"
-                "ExcludeFilter" = "8:*dades_prova*"
-                "ExcludeFilter" = "8:*bd*"
                 }
             }
         }
     }
 }
+

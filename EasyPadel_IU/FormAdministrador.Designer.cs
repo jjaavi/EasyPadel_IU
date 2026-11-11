@@ -100,7 +100,7 @@
             // 
             // panelLogo
             // 
-            panelLogo.BackgroundImage = Properties.Resources.EasyPadel_logo1;
+            panelLogo.BackgroundImage = EasyPadel_IU_User.Properties.Resources.EasyPadel_logo1;
             panelLogo.BackgroundImageLayout = ImageLayout.Zoom;
             panelLogo.Location = new Point(970, 475);
             panelLogo.Margin = new Padding(2);

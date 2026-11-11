@@ -1,11 +1,9 @@
 <Solution>
-  <Project Path="EasyPadel-Server/EasyPadel-Server.vdproj" Type="Installer">
-    <Build />
+  <Project Path="Setup-EasyPadel-Server/EasyPadel-Server.vdproj" Type="Installer">
+    <Build Solution="Debug|*" />
   </Project>
-  <Project Path="EasyPadel-Soci/EasyPadel-Soci.vdproj" Type="Installer">
-    <Build />
+  <Project Path="Setup-EasyPadel-Soci/EasyPadel-Soci.vdproj" Type="Installer">
+    <Build Solution="Debug|*" />
   </Project>
-  <Project Path="EasyPadel_User/EasyPadel_User.csproj">
-    <Build Solution="Release|*" Project="false" />
-  </Project>
+  <Project Path="EasyPadel_IU/EasyPadel_IU_User.csproj" />
 </Solution>
