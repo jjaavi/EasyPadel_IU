@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace EasyPadel
 {
-    internal static class EasyPadelMain
+    internal static class EeasyPadelServerMain
     {
         private const string variablesFilePath = @"Resources\variables.xml";
 
@@ -24,30 +24,7 @@ namespace EasyPadel
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.ApplicationExit += (_, _) => StopServerProcess();
-            AppDomain.CurrentDomain.ProcessExit += (_, _) => StopServerProcess();
-            AppDomain.CurrentDomain.UnhandledException += (_, _) => StopServerProcess();
-
-            try
-            {
-                if (!SetupServer())
-                {
-                    return;
-                }
-
-                if (!TryStartBackendAndWaitUntilReady())
-                {
-                    MessageBox.Show("No s'ha pogut conectar amb la base de dades. Si us plau, reinicii la aplicació.");
-                    StopServerProcess();
-                    return;
-                }
-
-                Application.Run(new FormLogin());
-            }
-            finally
-            {
-                StopServerProcess();
-            }
+            Application.Run(new FormSetupServer());
         }
 
         private static bool TryStartBackendAndWaitUntilReady()
