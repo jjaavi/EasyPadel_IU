@@ -9,7 +9,7 @@ namespace EasyPadel_User
 {
     public partial class Form_CanviarContrasenya : Form
     {
-        private const string BaseApiUrl = "http://localhost:8080";
+        private static string BaseApiUrl => EasyPadel.EasyPadelUserMain.BaseApiUrl;
         private static readonly HttpClient HttpClient = new();
 
         public Form_CanviarContrasenya()

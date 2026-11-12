@@ -2,15 +2,20 @@ using EasyPadel_IU_User;
 using EasyPadel_User;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Xml;
 
 namespace EasyPadel
 {
     internal static class EasyPadelUserMain
     {
+        private const string VariablesFilePath = @"Resources\variables.xml";
+
         private static readonly HttpClient HttpClient = new()
         {
             Timeout = TimeSpan.FromSeconds(2)
         };
+
+        internal static string BaseApiUrl = String.Empty;
 
         /// <summary>
         ///  The main entry point for the application.
@@ -19,6 +24,7 @@ namespace EasyPadel
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            BaseApiUrl = GetVariablesXml();
 
             if (!TryStartBackendAndWaitUntilReady())
             {
@@ -56,12 +62,34 @@ namespace EasyPadel
         {
             try
             {
-                using HttpResponseMessage response = HttpClient.GetAsync("http://localhost:8080/status").GetAwaiter().GetResult();
+                using HttpResponseMessage response = HttpClient.GetAsync($"{BaseApiUrl}/status").GetAwaiter().GetResult();
                 return response.IsSuccessStatusCode;
             }
             catch
             {
                 return false;
+            }
+        }
+
+        private static string GetVariablesXml()
+        {
+            try
+            {
+                string configPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, VariablesFilePath));
+                if (!File.Exists(configPath))
+                {
+                    return "http://localhost:8080";
+                }
+
+                XmlDocument doc = new();
+                doc.Load(configPath);
+                string? value = doc.SelectSingleNode("/variables/baseApiUrl")?.InnerText?.Trim();
+
+                return string.IsNullOrWhiteSpace(value) ? "http://localhost:8080" : value;
+            }
+            catch
+            {
+                return "http://localhost:8080";
             }
         }
 

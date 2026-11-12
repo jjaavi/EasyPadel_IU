@@ -6,7 +6,7 @@ namespace EasyPadel_User
     {
         private const string PlaceholderUsuari = "Correu electrònic";
         private const string PlaceholderPassword = "Contrasenya";
-        private const string BaseApiUrl = "http://localhost:8080";
+        private static string BaseApiUrl => EasyPadel.EasyPadelUserMain.BaseApiUrl;
         private static readonly HttpClient HttpClient = new();
 
         public FormLogin()

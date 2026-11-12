@@ -1,3 +1,4 @@
+using EasyPadel_IU_User.Properties;
 using System;
 using System.Drawing;
 using System.Globalization;
@@ -10,7 +11,7 @@ namespace EasyPadel_User
 {
     public partial class FormAdministrador : Form
     {
-        private const string BaseApiUrl = "http://localhost:8080";
+        private static string BaseApiUrl => EasyPadel.EasyPadelUserMain.BaseApiUrl;
         private static readonly HttpClient HttpClient = new();
 
         public FormAdministrador()

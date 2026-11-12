@@ -14,7 +14,9 @@ namespace EasyPadel_User
             btnInstalarBD.Click += btnInstalarBD_Click;
 
             MessageBox.Show(
-                "Per poder instalar la base de dades es necesari iniciar l'aplicació amb permisos elevats d'administrador.",
+                "S'ha detectat la primera execució del servidor." + Environment.NewLine +
+                "Es necessari instalar la base de dades." + Environment.NewLine +
+                "Assegura't d'haver iniciat l'aplicació amb permisos elevats d'administrador.",
                 "Informació",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -107,28 +109,24 @@ namespace EasyPadel_User
                 catch (MySqlException ex)
                 {
                     MessageBox.Show(
-                        "Error connectant a MySQL Server. " + Environment.NewLine + 
-                        "Repasa les credencials." + Environment.NewLine + 
+                        "Error connectant a MySQL Server. " + Environment.NewLine +
+                        "Repasa les credencials." + Environment.NewLine +
                         "Assegura't que el daemon de MySQL Server està iniciat.",
                         "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     return;
                 }
-                
+
                 DialogResult = DialogResult.OK;
             }
             catch (Exception exception)
             {
                 MessageBox.Show("No s'ha pogut preparar la configuració inicial de base de dades." + Environment.NewLine +
-                    exception.Message,    
-                    "Error", 
+                    exception.Message,
+                    "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void label1_Click(object? sender, EventArgs e)
-        {
         }
     }
 }

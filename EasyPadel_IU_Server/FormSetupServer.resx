@@ -121,15 +121,13 @@
     <value>False</value>
   </metadata>
   <data name="label1.Text" xml:space="preserve">
-    <value>L'aplicació s'esta executant per primer cop.
-Per a poder funcionar, s'ha de tenir la base de dades instalada.
-En el cas de que no es tingui instalada, instala la base de dades.
+    <value>El servidor s'esta executant per primer cop.
+És necessari instalar la base de dades.
 Opcionalment, podrás instalar dades de prova.
 
-Per tal de poder instalar la base de dades i conectar-se, has d'indicar
-els camps necesaris per a fer la conexió al teu MySQL Server.
+Indica els camps necesaris per a fer la conexió al teu MySQL Server
 
-</value>
+:</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

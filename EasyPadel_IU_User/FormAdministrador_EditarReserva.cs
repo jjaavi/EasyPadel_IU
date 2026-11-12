@@ -10,7 +10,7 @@ namespace EasyPadel_User
 {
     public partial class FormAdministrador_EditarReserva : Form
     {
-        private const string BaseApiUrl = "http://localhost:8080";
+        private static string BaseApiUrl => EasyPadel.EasyPadelUserMain.BaseApiUrl;
         private static readonly HttpClient HttpClient = new();
         private readonly int reservaId;
         private readonly int usuariIdReserva;

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TextBox txtHost;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetupServer));
             label1 = new Label();
             btnInstalarBD = new Button();
@@ -44,7 +43,7 @@
             // 
             // txtHost
             // 
-            txtHost.Location = new Point(295, 217);
+            txtHost.Location = new Point(295, 161);
             txtHost.Name = "txtHost";
             txtHost.Size = new Size(150, 31);
             txtHost.TabIndex = 3;
@@ -53,17 +52,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 19);
+            label1.Location = new Point(27, 14);
             label1.Name = "label1";
-            label1.Size = new Size(550, 200);
+            label1.Size = new Size(537, 175);
             label1.TabIndex = 0;
             label1.Text = resources.GetString("label1.Text");
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // btnInstalarBD
             // 
-            btnInstalarBD.Location = new Point(143, 387);
+            btnInstalarBD.Location = new Point(143, 322);
             btnInstalarBD.Name = "btnInstalarBD";
             btnInstalarBD.Size = new Size(302, 34);
             btnInstalarBD.TabIndex = 1;
@@ -73,7 +71,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(241, 220);
+            label2.Location = new Point(241, 164);
             label2.Name = "label2";
             label2.Size = new Size(54, 25);
             label2.TabIndex = 2;
@@ -82,7 +80,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(247, 257);
+            label3.Location = new Point(247, 201);
             label3.Name = "label3";
             label3.Size = new Size(48, 25);
             label3.TabIndex = 4;
@@ -90,7 +88,7 @@
             // 
             // txtPort
             // 
-            txtPort.Location = new Point(295, 254);
+            txtPort.Location = new Point(295, 198);
             txtPort.Name = "txtPort";
             txtPort.Size = new Size(150, 31);
             txtPort.TabIndex = 5;
@@ -99,7 +97,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(127, 294);
+            label4.Location = new Point(127, 238);
             label4.Name = "label4";
             label4.Size = new Size(168, 25);
             label4.TabIndex = 6;
@@ -107,7 +105,7 @@
             // 
             // txtUserAdmin
             // 
-            txtUserAdmin.Location = new Point(295, 291);
+            txtUserAdmin.Location = new Point(295, 235);
             txtUserAdmin.Name = "txtUserAdmin";
             txtUserAdmin.Size = new Size(150, 31);
             txtUserAdmin.TabIndex = 7;
@@ -116,7 +114,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(143, 331);
+            label5.Location = new Point(143, 275);
             label5.Name = "label5";
             label5.Size = new Size(146, 25);
             label5.TabIndex = 8;
@@ -124,7 +122,7 @@
             // 
             // txtPassworAdmin
             // 
-            txtPassworAdmin.Location = new Point(295, 328);
+            txtPassworAdmin.Location = new Point(295, 272);
             txtPassworAdmin.Name = "txtPassworAdmin";
             txtPassworAdmin.PasswordChar = '*';
             txtPassworAdmin.Size = new Size(150, 31);
@@ -136,7 +134,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(599, 445);
+            ClientSize = new Size(599, 375);
             Controls.Add(txtPassworAdmin);
             Controls.Add(label5);
             Controls.Add(txtUserAdmin);
