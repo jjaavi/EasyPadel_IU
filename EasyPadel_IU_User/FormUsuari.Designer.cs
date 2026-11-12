@@ -68,6 +68,19 @@
             menuStripUsuari.SuspendLayout();
             SuspendLayout();
             // 
+            // btnCancelarReserva
+            // 
+            btnCancelarReserva.BackColor = Color.White;
+            btnCancelarReserva.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancelarReserva.Location = new Point(829, 427);
+            btnCancelarReserva.Margin = new Padding(2);
+            btnCancelarReserva.Name = "btnCancelarReserva";
+            btnCancelarReserva.Size = new Size(188, 34);
+            btnCancelarReserva.TabIndex = 10;
+            btnCancelarReserva.Text = "Cancelar reserva";
+            btnCancelarReserva.UseVisualStyleBackColor = false;
+            btnCancelarReserva.Click += btnCancelarReserva_Click;
+            // 
             // panelLogo
             // 
             panelLogo.BackgroundImage = EasyPadel_IU_User.Properties.Resources.EasyPadel_logo1;
@@ -126,19 +139,6 @@
             btnReservesActuals.Text = "Reserves actuals";
             btnReservesActuals.UseVisualStyleBackColor = true;
             btnReservesActuals.Click += btnReservesActuals_Click;
-            // 
-            // btnCancelarReserva
-            // 
-            btnCancelarReserva.BackColor = Color.White;
-            btnCancelarReserva.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancelarReserva.Location = new Point(829, 427);
-            btnCancelarReserva.Margin = new Padding(2);
-            btnCancelarReserva.Name = "btnCancelarReserva";
-            btnCancelarReserva.Size = new Size(188, 34);
-            btnCancelarReserva.TabIndex = 10;
-            btnCancelarReserva.Text = "Cancelar reserva";
-            btnCancelarReserva.UseVisualStyleBackColor = false;
-            btnCancelarReserva.Click += btnCancelarReserva_Click;
             // 
             // panelNovaReserva
             // 
@@ -389,6 +389,7 @@
             Margin = new Padding(2);
             MaximizeBox = false;
             Name = "FormUsuari";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Easy Padel - Panell de soci";
             Load += FormUsuari_Load;
             panelReserves.ResumeLayout(false);

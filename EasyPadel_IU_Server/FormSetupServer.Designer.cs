@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetupServer));
+            TextBox txtHost;
             label1 = new Label();
             btnInstalarBD = new Button();
             label2 = new Label();
@@ -40,14 +41,6 @@
             txtPassworAdmin = new TextBox();
             txtHost = new TextBox();
             SuspendLayout();
-            // 
-            // txtHost
-            // 
-            txtHost.Location = new Point(295, 161);
-            txtHost.Name = "txtHost";
-            txtHost.Size = new Size(150, 31);
-            txtHost.TabIndex = 3;
-            txtHost.Text = "localhost";
             // 
             // label1
             // 
@@ -129,6 +122,14 @@
             txtPassworAdmin.TabIndex = 9;
             txtPassworAdmin.Text = "1234";
             // 
+            // txtHost
+            // 
+            txtHost.Location = new Point(295, 161);
+            txtHost.Name = "txtHost";
+            txtHost.Size = new Size(150, 31);
+            txtHost.TabIndex = 3;
+            txtHost.Text = "localhost";
+            // 
             // FormSetupServer
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -148,6 +149,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormSetupServer";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EasyPadel - Primera execucció";
             ResumeLayout(false);
             PerformLayout();

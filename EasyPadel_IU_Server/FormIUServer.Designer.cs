@@ -34,7 +34,8 @@
             btnArrancarServidor = new Button();
             label2 = new Label();
             btnParar = new Button();
-            panelEstatServidor = new Panel();
+            panelEstatServidorNotOK = new Panel();
+            panelEstatServidorOK = new Panel();
             SuspendLayout();
             // 
             // label1
@@ -86,14 +87,23 @@
             btnParar.Text = "Parar";
             btnParar.UseVisualStyleBackColor = true;
             // 
-            // panelEstatServidor
+            // panelEstatServidorNotOK
             // 
-            panelEstatServidor.BackgroundImage = (Image)resources.GetObject("panelEstatServidor.BackgroundImage");
-            panelEstatServidor.BackgroundImageLayout = ImageLayout.Zoom;
-            panelEstatServidor.Location = new Point(329, 87);
-            panelEstatServidor.Name = "panelEstatServidor";
-            panelEstatServidor.Size = new Size(68, 49);
-            panelEstatServidor.TabIndex = 5;
+            panelEstatServidorNotOK.BackgroundImage = (Image)resources.GetObject("panelEstatServidorNotOK.BackgroundImage");
+            panelEstatServidorNotOK.BackgroundImageLayout = ImageLayout.Zoom;
+            panelEstatServidorNotOK.Location = new Point(329, 87);
+            panelEstatServidorNotOK.Name = "panelEstatServidorNotOK";
+            panelEstatServidorNotOK.Size = new Size(68, 49);
+            panelEstatServidorNotOK.TabIndex = 5;
+            // 
+            // panelEstatServidorOK
+            // 
+            panelEstatServidorOK.BackgroundImage = (Image)resources.GetObject("panelEstatServidorOK.BackgroundImage");
+            panelEstatServidorOK.BackgroundImageLayout = ImageLayout.Zoom;
+            panelEstatServidorOK.Location = new Point(329, 87);
+            panelEstatServidorOK.Name = "panelEstatServidorOK";
+            panelEstatServidorOK.Size = new Size(68, 49);
+            panelEstatServidorOK.TabIndex = 6;
             // 
             // FormIUServer
             // 
@@ -101,7 +111,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(213, 221, 40);
             ClientSize = new Size(493, 250);
-            Controls.Add(panelEstatServidor);
+            Controls.Add(panelEstatServidorOK);
+            Controls.Add(panelEstatServidorNotOK);
             Controls.Add(btnParar);
             Controls.Add(label2);
             Controls.Add(btnArrancarServidor);
@@ -124,6 +135,7 @@
         private Button btnArrancarServidor;
         private Label label2;
         private Button btnParar;
-        private Panel panelEstatServidor;
+        private Panel panelEstatServidorNotOK;
+        private Panel panelEstatServidorOK;
     }
 }

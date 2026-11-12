@@ -39,8 +39,4 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <AdditionalFiles Remove="app-setup-soci.manifest" />
-  </ItemGroup>
-
-</Project>
+  </Project>

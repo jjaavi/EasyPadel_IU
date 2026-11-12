@@ -688,6 +688,7 @@
             Margin = new Padding(2);
             MaximizeBox = false;
             Name = "FormAdministrador";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Easy Padel - Panell d'administrador";
             Load += FormAdministrador_Load;
             panelReserves.ResumeLayout(false);

@@ -204,11 +204,15 @@ namespace EasyPadel_IU_Server
             {
                 btnArrancarServidor.Enabled = false;
                 btnParar.Enabled = true;
+                panelEstatServidorOK.Visible = true;
+                panelEstatServidorNotOK.Visible = false;
             }
             else
             {
                 btnArrancarServidor.Enabled = true;
                 btnParar.Enabled = false;
+                panelEstatServidorOK.Visible = false;
+                panelEstatServidorNotOK.Visible = true; 
             }
         }
 
