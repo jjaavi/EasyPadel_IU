@@ -8,8 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Configurations>Debug;Release;Release-Server;EasyPadel-Soci</Configurations>
     <ApplicationIcon>Resources\padel.ico</ApplicationIcon>
-    <!--<ApplicationManifest>app.manifest</ApplicationManifest>-->
-	<ApplicationManifest>app-setup-soci.manifest</ApplicationManifest>
+	<ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,13 +37,10 @@
     <Content Include="Resources\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="bd\**\*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="app-setup-soci.manifest" />
+    <AdditionalFiles Remove="app-setup-soci.manifest" />
   </ItemGroup>
 
 </Project>

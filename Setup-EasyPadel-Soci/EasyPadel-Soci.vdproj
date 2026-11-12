@@ -27,31 +27,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_831802FC02E84BBCA76EE6EE8BF532C8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_963A0A6D218B4828808D44C2FF3185D4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C274974054AF412B978DE9E34F6D0879"
+        "MsmKey" = "8:_96412031E5514F3B9298173D3740DC45"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C55CCBE6CD82460B861201C93B3BA594"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E8AFFFF505BF43A68342E411A27477F3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -192,26 +180,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_831802FC02E84BBCA76EE6EE8BF532C8"
-            {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\server\\easypadel-backend-2.0.0.jar"
-            "TargetName" = "8:easypadel-backend-2.0.0.jar"
-            "Tag" = "8:"
-            "Folder" = "8:_5E5D3C0A164D4F4B8C53074BAADE6E94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_963A0A6D218B4828808D44C2FF3185D4"
             {
             "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\padel.ico"
@@ -238,26 +206,6 @@
             "TargetName" = "8:EasyPadel_logo1.png"
             "Tag" = "8:"
             "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8AFFFF505BF43A68342E411A27477F3"
-            {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\server\\application-setup-soci.properties"
-            "TargetName" = "8:application.properties"
-            "Tag" = "8:"
-            "Folder" = "8:_5E5D3C0A164D4F4B8C53074BAADE6E94"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -299,17 +247,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5E5D3C0A164D4F4B8C53074BAADE6E94"
-                    {
-                    "Name" = "8:server"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_8E41C59D9A6E45B5B974800440E980DF"
-                        "Folders"
-                        {
-                        }
-                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
                     {
                     "Name" = "8:Resources"
@@ -479,7 +416,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_C274974054AF412B978DE9E34F6D0879"
+            "Target" = "8:"
             "Folder" = "8:_DFD7A7B267F8412A866F06813B539F46"
             "WorkingFolder" = "8:_FC360857F8A64840AD1CE34275D93E24"
             "Icon" = "8:_963A0A6D218B4828808D44C2FF3185D4"
@@ -493,7 +430,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_C274974054AF412B978DE9E34F6D0879"
+            "Target" = "8:"
             "Folder" = "8:_FFF0E69EA42E421A9942D341528124A0"
             "WorkingFolder" = "8:_FC360857F8A64840AD1CE34275D93E24"
             "Icon" = "8:_963A0A6D218B4828808D44C2FF3185D4"
@@ -898,9 +835,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C274974054AF412B978DE9E34F6D0879"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_96412031E5514F3B9298173D3740DC45"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\obj\\Release\\net10.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\obj\\Debug\\net10.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_FC360857F8A64840AD1CE34275D93E24"
@@ -920,18 +857,12 @@
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{18360C6A-2F8A-F1C0-7DF4-7F2FE076B5CC}"
+            "OutputProjectGuid" = "8:{26F46301-9494-A7CA-15EB-1C8E4F724858}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
-                "ExcludeFilter" = "8:application-setup-soci.properties"
-                "ExcludeFilter" = "8:*dades_prova*"
-                "ExcludeFilter" = "8:*bd*"
                 }
             }
         }
     }
 }
-
-
-

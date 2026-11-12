@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0D20AD546CA94842BDD9FD616BCA6A79"
+        "MsmKey" = "8:_3652ABE12FCA47C5A8A4B2AAF64FF61B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3652ABE12FCA47C5A8A4B2AAF64FF61B"
+        "MsmKey" = "8:_44E6FD22369A481CA83AA80C59B502A3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,19 +33,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8727A158C84F4783B135E014B82FC3F1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_893EFCDF1A51491E9CBCD26A16ACBFA0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D6AB772B10E4460A2158DF2CED5E44E"
+        "MsmKey" = "8:_A264A187283441AD863362FF3876FC41"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_90603CFD95164FE8BDCD3D171552EF69"
+        "MsmKey" = "8:_A4E0F32EC01844A9979BBE0CD352F7D1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -57,13 +63,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CEBA5431A6494717940B16E812E99C52"
+        "MsmKey" = "8:_E6FA59E6B39941D0A4778C58C943665D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E6FA59E6B39941D0A4778C58C943665D"
+        "MsmKey" = "8:_F4A136E5ACDC43F6AAE1A9ADD57FAE64"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -184,12 +190,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_44E6FD22369A481CA83AA80C59B502A3"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\server\\application.properties"
+            "TargetName" = "8:application.properties"
+            "Tag" = "8:"
+            "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73BB4243939F400A92FC35A8DA920EE3"
             {
             "SourcePath" = "8:..\\EasyPadel_IU_User\\bd\\dades_prova.sql"
             "TargetName" = "8:dades_prova.sql"
             "Tag" = "8:"
             "Folder" = "8:_86977345D4304CCA8549C8F3C35097A9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8727A158C84F4783B135E014B82FC3F1"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\Resources\\database_ok.png"
+            "TargetName" = "8:database_ok.png"
+            "Tag" = "8:"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -224,29 +270,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D6AB772B10E4460A2158DF2CED5E44E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4E0F32EC01844A9979BBE0CD352F7D1"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\EasyPadel_logo.png"
-            "TargetName" = "8:EasyPadel_logo.png"
-            "Tag" = "8:"
-            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90603CFD95164FE8BDCD3D171552EF69"
-            {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\variables.xml"
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\Resources\\variables.xml"
             "TargetName" = "8:variables.xml"
             "Tag" = "8:"
             "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
@@ -284,12 +310,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CEBA5431A6494717940B16E812E99C52"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6FA59E6B39941D0A4778C58C943665D"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\server\\application.properties"
-            "TargetName" = "8:application.properties"
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\padel.ico"
+            "TargetName" = "8:padel.ico"
             "Tag" = "8:"
-            "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -304,10 +330,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6FA59E6B39941D0A4778C58C943665D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4A136E5ACDC43F6AAE1A9ADD57FAE64"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\padel.ico"
-            "TargetName" = "8:padel.ico"
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\Resources\\database_notok.png"
+            "TargetName" = "8:database_notok.png"
             "Tag" = "8:"
             "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
             "Condition" = "8:"
@@ -542,7 +568,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_0D20AD546CA94842BDD9FD616BCA6A79"
+            "Target" = "8:"
             "Folder" = "8:_6F99646B7DE44B1BBAC75CE3F7DBA7D1"
             "WorkingFolder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
             "Icon" = "8:_E6FA59E6B39941D0A4778C58C943665D"
@@ -556,7 +582,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_0D20AD546CA94842BDD9FD616BCA6A79"
+            "Target" = "8:"
             "Folder" = "8:_918A1B1A8F8247DFA9303C817706A3F5"
             "WorkingFolder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
             "Icon" = "8:_E6FA59E6B39941D0A4778C58C943665D"
@@ -961,9 +987,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0D20AD546CA94842BDD9FD616BCA6A79"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A264A187283441AD863362FF3876FC41"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\obj\\Release\\net10.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\obj\\Debug\\net10.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_86DF1044FA70475FA4F5B26D0ECDA88B"
@@ -983,15 +1009,12 @@
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
-            "OutputProjectGuid" = "8:{18360C6A-2F8A-F1C0-7DF4-7F2FE076B5CC}"
+            "OutputProjectGuid" = "8:{990EF455-AA48-42B3-AE36-257FDFB42D36}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
-                "ExcludeFilter" = "8:application-setup-soci.properties"
                 }
             }
         }
     }
 }
-
-

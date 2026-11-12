@@ -11,10 +11,11 @@ namespace EasyPadel_IU_Server
 
         private static readonly HttpClient HttpClient = new()
         {
-            Timeout = TimeSpan.FromSeconds(2)
+            Timeout = TimeSpan.FromSeconds(10)
         };
 
         private Process? serverProcess;
+        private int serverProcessId;
 
         public FormIUServer()
         {
@@ -97,18 +98,19 @@ namespace EasyPadel_IU_Server
 
         private bool TryStartBackendAndWaitUntilReady()
         {
-            using var loadingDialog = new LoadingDialogForm("Arrencant el servidor.");
-            loadingDialog.Show();
-            loadingDialog.Refresh();
+            using var loadingMessage = CarregantMessageBox();
+            loadingMessage.Show();
+            loadingMessage.Refresh();
 
             bool started = Task.Run(StartServerBackendProcess).GetAwaiter().GetResult();
+            Thread.Sleep(1000);
             if (!started)
             {
                 return false;
             }
 
             Stopwatch timeout = Stopwatch.StartNew();
-            while (timeout.Elapsed < TimeSpan.FromSeconds(30))
+            while (timeout.Elapsed < TimeSpan.FromSeconds(45))
             {
                 Application.DoEvents();
 
@@ -117,9 +119,10 @@ namespace EasyPadel_IU_Server
                     return true;
                 }
 
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }
 
+            StopServer();
             return false;
         }
 
@@ -147,13 +150,21 @@ namespace EasyPadel_IU_Server
             };
 
             serverProcess = Process.Start(startInfo);
+            serverProcessId = serverProcess?.Id ?? 0;
             return serverProcess is not null;
         }
 
         private static bool IsServerReady()
         {
-            using HttpResponseMessage response = HttpClient.GetAsync("http://localhost:8080/status").GetAwaiter().GetResult();
-            return response.IsSuccessStatusCode;
+            try
+            {
+                using HttpResponseMessage response = HttpClient.GetAsync("http://localhost:8080/status").GetAwaiter().GetResult();
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static string? GetServerPathFromXml()
@@ -201,33 +212,35 @@ namespace EasyPadel_IU_Server
             }
         }
 
-        private sealed class LoadingDialogForm : Form
+        private static Form CarregantMessageBox()
         {
-            public LoadingDialogForm(string message)
+            Form messageForm = new()
             {
-                FormBorderStyle = FormBorderStyle.FixedDialog;
-                ControlBox = false;
-                StartPosition = FormStartPosition.CenterScreen;
-                ShowInTaskbar = false;
-                TopMost = true;
-                MinimizeBox = false;
-                MaximizeBox = false;
-                ClientSize = new Size(360, 90);
-                BackColor = Color.FromArgb(213, 221, 40);
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                ControlBox = false,
+                StartPosition = FormStartPosition.CenterScreen,
+                ShowInTaskbar = false,
+                TopMost = true,
+                MinimizeBox = false,
+                MaximizeBox = false,
+                ClientSize = new Size(360, 90),
+                BackColor = Color.FromArgb(213, 221, 40),
+                Text = "EasyPadel"
+            };
 
-                FormClosing += (_, e) => e.Cancel = true;
+            messageForm.FormClosing += (_, e) => e.Cancel = true;
 
-                var label = new Label
-                {
-                    Dock = DockStyle.Fill,
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Text = message,
-                    ForeColor = Color.Black,
-                    BackColor = Color.FromArgb(213, 221, 40)
-                };
+            Label label = new()
+            {
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Text = "Arrencant el servidor...",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(213, 221, 40)
+            };
 
-                Controls.Add(label);
-            }
+            messageForm.Controls.Add(label);
+            return messageForm;
         }
     }
 }
