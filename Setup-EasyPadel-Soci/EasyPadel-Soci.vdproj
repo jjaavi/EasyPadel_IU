@@ -15,31 +15,31 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_6184F0F95CEF48ED96AB93ACC5BC15B8"
+        "MsmKey" = "8:_0896A34C15474784A18AD809D469BA82"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6CE18DE6FD04429CB57C2BB4E905DC1B"
+        "MsmKey" = "8:_3F9B4BAC6553480CBFCF8273F83372B0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+        "MsmKey" = "8:_62860EBB4AC44FB48D239CC03AAA7239"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7E0CF770171D4949A7F1B6BB862FCE56"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_96412031E5514F3B9298173D3740DC45"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C55CCBE6CD82460B861201C93B3BA594"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -140,47 +140,7 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6184F0F95CEF48ED96AB93ACC5BC15B8"
-            {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\variables.xml"
-            "TargetName" = "8:variables.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6CE18DE6FD04429CB57C2BB4E905DC1B"
-            {
-            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\EasyPadel_logo.png"
-            "TargetName" = "8:EasyPadel_logo.png"
-            "Tag" = "8:"
-            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_963A0A6D218B4828808D44C2FF3185D4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0896A34C15474784A18AD809D469BA82"
             {
             "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\padel.ico"
             "TargetName" = "8:padel.ico"
@@ -200,7 +160,47 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C55CCBE6CD82460B861201C93B3BA594"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3F9B4BAC6553480CBFCF8273F83372B0"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\variables.xml"
+            "TargetName" = "8:variables.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_62860EBB4AC44FB48D239CC03AAA7239"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\EasyPadel_logo.png"
+            "TargetName" = "8:EasyPadel_logo.png"
+            "Tag" = "8:"
+            "Folder" = "8:_DC1D9E5F2F0A4A038EDB8B049C23CAB2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E0CF770171D4949A7F1B6BB862FCE56"
             {
             "SourcePath" = "8:..\\EasyPadel_IU_User\\Resources\\EasyPadel_logo1.png"
             "TargetName" = "8:EasyPadel_logo1.png"
@@ -305,7 +305,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+        "ARPPRODUCTICON" = "8:_0896A34C15474784A18AD809D469BA82"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -408,7 +408,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A22EAC3FF9E846BCB252F8F3C82FD7C6"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_50B45690355D428989CA988A6E9DFA43"
             {
             "Name" = "8:EasyPadel"
             "Arguments" = "8:"
@@ -416,13 +416,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:"
+            "Target" = "8:_96412031E5514F3B9298173D3740DC45"
             "Folder" = "8:_DFD7A7B267F8412A866F06813B539F46"
             "WorkingFolder" = "8:_FC360857F8A64840AD1CE34275D93E24"
-            "Icon" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+            "Icon" = "8:_0896A34C15474784A18AD809D469BA82"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E4ED458688934882A5DC5FEDE4353444"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E761F0C3A2284D4AAC8401BB289A92B1"
             {
             "Name" = "8:EasyPadel"
             "Arguments" = "8:"
@@ -430,10 +430,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:"
+            "Target" = "8:_96412031E5514F3B9298173D3740DC45"
             "Folder" = "8:_FFF0E69EA42E421A9942D341528124A0"
             "WorkingFolder" = "8:_FC360857F8A64840AD1CE34275D93E24"
-            "Icon" = "8:_963A0A6D218B4828808D44C2FF3185D4"
+            "Icon" = "8:_0896A34C15474784A18AD809D469BA82"
             "Feature" = "8:"
             }
         }

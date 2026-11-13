@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSetupServer));
-            TextBox txtHost;
             label1 = new Label();
             btnInstalarBD = new Button();
             label2 = new Label();

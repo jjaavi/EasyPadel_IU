@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Button btnCancelarReserva;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuari));
             panelLogo = new Panel();
             panelReserves = new Panel();

@@ -1,15 +1,15 @@
 <Solution>
-  <Project Path="EasyPadel_IU_User/EasyPadel_IU_User.csproj">
-    <BuildType Project="Debug" />
-  </Project>
   <Project Path="EasyPadel_IU_Server/EasyPadel_IU_Server.csproj" Id="990ef455-aa48-42b3-ae36-257fdfb42d36">
     <BuildType Project="Debug" />
   </Project>
+  <Project Path="EasyPadel_IU_User/EasyPadel_IU_User.csproj">
+    <BuildType Project="Debug" />
+  </Project>
   <Project Path="Setup-EasyPadel-Server/EasyPadel-Server.vdproj" Type="Installer">
-    <Build Solution="Debug|*" />
+    <Build />
   </Project>
   <Project Path="Setup-EasyPadel-Soci/EasyPadel-Soci.vdproj" Type="Installer">
-    <Build Solution="Debug|*" />
+    <Build />
   </Project>
 </Solution>
 
