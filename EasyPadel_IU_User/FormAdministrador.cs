@@ -664,8 +664,8 @@ namespace EasyPadel_User
             using FormAdministrdor_EditaOAltaUsuari formulariUsuari = new(modificar, usuariId, nom, cognom, telefon, email, admin, actiu);
             formulariUsuari.StartPosition = FormStartPosition.Manual;
             formulariUsuari.Location = Location;
-            formulariUsuari.Size = new Size(366, 397);
-            formulariUsuari.MinimumSize = new Size(366, 397);
+            formulariUsuari.Size = new Size(370, 431);
+            formulariUsuari.MinimumSize = new Size(370, 431);
             if (formulariUsuari.ShowDialog(this) == DialogResult.OK)
             {
                 await InicialitzarPanellUsuarisAsync();

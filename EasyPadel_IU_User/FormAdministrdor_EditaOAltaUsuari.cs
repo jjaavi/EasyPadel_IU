@@ -24,6 +24,16 @@ namespace EasyPadel_User
             this.usuariId = usuariId;
             actiuDataGrid = actiu;
 
+            if (actiuDataGrid)
+            {
+                checkboxReactivarUsuari.Visible = false;
+            }
+            else
+            {
+                checkboxReactivarUsuari.Visible = true;
+                checkboxReactivarUsuari.Checked = false;
+            }
+
             txtNom.Text = nom;
             txtCognom.Text = cognom;
             txtTelefon.Text = telefon;
@@ -122,7 +132,7 @@ namespace EasyPadel_User
                         if (restarurPassword)
                         {
                             MessageBox.Show(
-                                $"Usuari amb email {email} modificat correctament." + Environment.NewLine +
+                                $"Dades d'usuari amb email {email} modificat correctament." + Environment.NewLine +
                                 "El password temporal nou es:" + Environment.NewLine +
                                 $"{passwordTemporal}",
                                 "Modificació d'usuari.",
@@ -133,6 +143,23 @@ namespace EasyPadel_User
                         {
                             MessageBox.Show("Usuari modificat correctament.", "Usuari modificat.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+
+                        if (!actiuDataGrid && checkboxReactivarUsuari.Checked)
+                        {
+                            using HttpRequestMessage reactivarRequest = new(HttpMethod.Put, $"{BaseApiUrl}/api/usuaris/{usuariId.Value}/reactivar");
+                            using HttpResponseMessage reactivarResponse = await HttpClient.SendAsync(reactivarRequest);
+
+                            if (reactivarResponse.IsSuccessStatusCode)
+                            {
+                                MessageBox.Show("L'usuari ha sigut reactivat.", "Informació", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al reactivar l'usuari.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+
                         DialogResult = DialogResult.OK;
                         Close();
                     }
