@@ -42,6 +42,7 @@ namespace EasyPadel_User
             checkBoxAdmin = new CheckBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            checkboxReactivarUsuari = new CheckBox();
             SuspendLayout();
             // 
             // lblNom
@@ -146,7 +147,7 @@ namespace EasyPadel_User
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(12, 295);
+            btnGuardar.Location = new Point(12, 325);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(159, 34);
             btnGuardar.TabIndex = 11;
@@ -155,19 +156,30 @@ namespace EasyPadel_User
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(177, 295);
+            btnCancelar.Location = new Point(177, 325);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(155, 34);
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // checkboxReactivarUsuari
+            // 
+            checkboxReactivarUsuari.AutoSize = true;
+            checkboxReactivarUsuari.Location = new Point(122, 281);
+            checkboxReactivarUsuari.Name = "checkboxReactivarUsuari";
+            checkboxReactivarUsuari.Size = new Size(201, 29);
+            checkboxReactivarUsuari.TabIndex = 13;
+            checkboxReactivarUsuari.Text = "Tornar a donar d'alta";
+            checkboxReactivarUsuari.UseVisualStyleBackColor = true;
+            // 
             // FormAdministrdor_EditaOAltaUsuari
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(344, 341);
+            ClientSize = new Size(344, 371);
             ControlBox = false;
+            Controls.Add(checkboxReactivarUsuari);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(checkBoxAdmin);
@@ -181,6 +193,7 @@ namespace EasyPadel_User
             Controls.Add(lblCognom);
             Controls.Add(txtNom);
             Controls.Add(lblNom);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormAdministrdor_EditaOAltaUsuari";
             Text = "Usuari";
@@ -203,5 +216,6 @@ namespace EasyPadel_User
         internal TextBox txtEmail;
         internal TextBox txtPassword;
         internal CheckBox checkBoxAdmin;
+        internal CheckBox checkboxReactivarUsuari;
     }
 }

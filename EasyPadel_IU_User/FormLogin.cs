@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Json;
 
 namespace EasyPadel_User
@@ -85,22 +86,34 @@ namespace EasyPadel_User
                 return;
             }
 
-            LoginResponseDto? loginResponse = await ejecutarLogin(textBoxUsuari.Text.Trim(), textBoxPassword.Text);
-            if (loginResponse is null ||
-                !loginResponse.Correcte ||
-                loginResponse.IdUsuari is null ||
-                string.IsNullOrWhiteSpace(loginResponse.Rol))
+            LoginResult loginResult = await ejecutarLogin(textBoxUsuari.Text.Trim(), textBoxPassword.Text);
+            if (loginResult.Response is null ||
+                !loginResult.Response.Correcte ||
+                loginResult.Response.IdUsuari is null ||
+                string.IsNullOrWhiteSpace(loginResult.Response.Rol))
             {
-                MessageBox.Show("No s'ha pogut iniciar sessió. Si us plau, revisa els camps.");
+                if (loginResult.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    MessageBox.Show("L'usuari està desactivat.");
+                }
+                else if (loginResult.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Credencials incorrectes.");
+                }
+                else
+                {
+                    MessageBox.Show("No s'ha pogut iniciar sessió. Si us plau, revisa els camps.");
+                }
+
                 return;
             }
 
-            SessionContext.UsuariId = loginResponse.IdUsuari.Value;
-            SessionContext.Rol = loginResponse.Rol;
+            SessionContext.UsuariId = loginResult.Response.IdUsuari.Value;
+            SessionContext.Rol = loginResult.Response.Rol;
             SessionContext.EmailUsuari = textBoxUsuari.Text.Trim();
 
             Form newForm;
-            if (string.Equals(loginResponse.Rol, "ADMIN", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(loginResult.Response.Rol, "ADMIN", StringComparison.OrdinalIgnoreCase))
             {
                 newForm = new FormAdministrador();
             }
@@ -114,29 +127,33 @@ namespace EasyPadel_User
             newForm.Show();
         }
 
-        private static async Task<LoginResponseDto?> ejecutarLogin(string email, string password)
+        private static async Task<LoginResult> ejecutarLogin(string email, string password)
         {
             var loginRequest = new LoginRequestDto(email, password);
 
             try
             {
                 using HttpResponseMessage response = await HttpClient.PostAsJsonAsync($"{BaseApiUrl}/api/usuaris/login", loginRequest);
-                if (!response.IsSuccessStatusCode)
+                LoginResponseDto? loginResponse = null;
+
+                if (response.IsSuccessStatusCode)
                 {
-                    return null;
+                    loginResponse = await response.Content.ReadFromJsonAsync<LoginResponseDto>();
                 }
 
-                return await response.Content.ReadFromJsonAsync<LoginResponseDto>();
+                return new LoginResult(loginResponse, response.StatusCode);
             }
             catch
             {
-                return null;
+                return new LoginResult(null, null);
             }
         }
 
         private sealed record LoginRequestDto(string Email, string Password);
 
         private sealed record LoginResponseDto(bool Correcte, int? IdUsuari, string? Rol, string? Missatge);
+
+        private sealed record LoginResult(LoginResponseDto? Response, HttpStatusCode? StatusCode);
     }
 
     public static class SessionContext

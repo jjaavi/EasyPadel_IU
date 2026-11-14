@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0103968897104FC3BE4AC3122C503447"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1E7692088FEE42DD932AC91672BCF809"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,6 +45,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_783201FE34484BE9870165537B1963AF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8F445C880AAD422A9628D61A6B615885"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -63,7 +63,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D7E9BAF0419F47DCACA6B5FB34F08E0A"
+        "MsmKey" = "8:_C3B55794F22E4BD884434C9277F4A950"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -170,26 +170,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0103968897104FC3BE4AC3122C503447"
-            {
-            "SourcePath" = "8:..\\EasyPadel_IU_Server\\Resources\\variables.xml"
-            "TargetName" = "8:variables.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E7692088FEE42DD932AC91672BCF809"
             {
             "SourcePath" = "8:..\\EasyPadel_IU_Server\\server\\application.properties"
@@ -290,6 +270,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_783201FE34484BE9870165537B1963AF"
+            {
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\server\\easypadel-backend-2.1.0.jar"
+            "TargetName" = "8:easypadel-backend-2.1.0.jar"
+            "Tag" = "8:"
+            "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F445C880AAD422A9628D61A6B615885"
             {
             "SourcePath" = "8:..\\EasyPadel_IU_Server\\Resources\\padel.ico"
@@ -310,12 +310,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7E9BAF0419F47DCACA6B5FB34F08E0A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C3B55794F22E4BD884434C9277F4A950"
             {
-            "SourcePath" = "8:..\\EasyPadel_IU_Server\\server\\easypadel-backend-2.0.0.jar"
-            "TargetName" = "8:easypadel-backend-2.0.0.jar"
+            "SourcePath" = "8:..\\EasyPadel_IU_Server\\Resources\\variables.xml"
+            "TargetName" = "8:variables.xml"
             "Tag" = "8:"
-            "Folder" = "8:_9A863A58927E4DAD9D974F071E8CF3A1"
+            "Folder" = "8:_F23EC43AD1B44E63849AD4ECBE5438FF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
